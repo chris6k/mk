@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="navArrowLeft" type="id"/>
+    <item name="body" type="id"/>
+    <item name="navText" type="id"/>
+    <item name="dashboardText" type="id"/>
+    <item name="dashboardBalance" type="id"/>
+    <item name="dashboardYuan" type="id"/>
+    <item name="exchangeArrow" type="id"/>
+    <item name="exchangeText" type="id"/>
+    <item name="todayCommission" type="id"/>
+    <item name="todayReward" type="id"/>
+    <item name="yesterdayCommission" type="id"/>
+    <item name="yesterdayReward" type="id"/>
+    <item name="downloadApp" type="id"/>
+    <item name="inviteFriends" type="id"/>
+    <item name="mainLayout" type="id"/>
+    <item name="mainBody" type="id"/>
+    <item name="mainMenu" type="id"/>
+    <item name="leftMenuText" type="id"/>
+</resources>

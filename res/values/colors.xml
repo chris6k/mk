@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="buttonPressedColor" type="color">#666</item>
+    <item name="nav_bkg" type="color">#f581c2</item>
+    <item name="account_dashboard_back" type="color">#52aff7</item>
+    <item name="hint_text_color" type="color">#a7a7a7</item>
+</resources>

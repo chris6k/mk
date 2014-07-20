@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="balance_text" type="string">账户余额:</item>
+    <item name="balance_default_value" type="string">0.0</item>
+    <item name="balance_yuan" type="string">元</item>
+    <item name="commission_text" type="string">收入概况</item>
+    <item name="exchange_text" type="string">兑换现金</item>
+    <item name="task_commission_text" type="string">任务收入</item>
+    <item name="friend_reward" type="string">朋友奖励</item>
+    <item name="today_text" type="string">今日</item>
+    <item name="yesterday_text" type="string">昨日</item>
+    <item name="download_app_text" type="string">下载应用赚现金</item>
+    <item name="hint_download_app_text" type="string">下载应用赚现金,10元提现</item>
+    <item name="invite_friends_text" type="string">邀请朋友</item>
+    <item name="hint_invite_friends_text" type="string">获得朋友收入10%的额外奖励</item>
+</resources>
