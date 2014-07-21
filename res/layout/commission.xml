@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/totalCommissionLabel"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50sp"/>
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@id/totalCommissionText"
+                    android:gravity="left|center_vertical"
+                    android:text="10.0"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50sp"/>
+        </LinearLayout>
+
+        <ImageView
+                android:src="@color/hint_text_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/totalPaymentLabel"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"/>
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@id/totalPaymentText"
+                    android:gravity="left|center_vertical"
+                    android:text="10.0"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50sp"/>
+        </LinearLayout>
+
+        <ImageView
+                android:src="@color/hint_text_color"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/totalBalanceLabel"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"/>
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:text="22"
+                    android:id="@id/totalBalanceText"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+            android:src="@color/hint_text_color"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"/>
+
+    <ListView
+            android:id="@id/commDetailList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+</LinearLayout>

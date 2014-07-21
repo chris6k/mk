@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="totalCommissionLabel" type="string">总收入</item>
+    <item name="totalPaymentLabel" type="string">总支出</item>
+    <item name="totalBalanceLabel" type="string">账户余额</item>
+</resources>

@@ -18,4 +18,8 @@
     <item name="mainBody" type="id"/>
     <item name="mainMenu" type="id"/>
     <item name="leftMenuText" type="id"/>
+    <item name="totalCommissionText" type="id"/>
+    <item name="totalPaymentText" type="id"/>
+    <item name="totalBalanceText" type="id"/>
+    <item name="commDetailList" type="id"/>
 </resources>
