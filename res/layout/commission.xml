@@ -115,7 +115,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"/>
 
-    <ListView
+    <com.jk.makemoney.component.MkListView
             android:id="@id/commDetailList"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

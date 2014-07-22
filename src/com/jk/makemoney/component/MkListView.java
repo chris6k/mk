@@ -76,7 +76,8 @@ public class MkListView extends ListView {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-
+            //TODO
+            return null;
         }
 
         @Override
