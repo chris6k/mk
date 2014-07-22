@@ -22,4 +22,8 @@
     <item name="totalPaymentText" type="id"/>
     <item name="totalBalanceText" type="id"/>
     <item name="commDetailList" type="id"/>
+    <item name="commDayText" type="id"/>
+    <item name="commItemDetail" type="id"/>
+    <item name="commItemMoney" type="id"/>
+    <item name="commItemStatus" type="id"/>
 </resources>

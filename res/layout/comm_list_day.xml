@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@id/commDayText"
+            android:background="@color/comm_day_bg_color"
+            android:textColor="@color/comm_day_text_color"
+            android:text="2014-01-01"
+            android:textSize="15sp"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp"
+            android:paddingLeft="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

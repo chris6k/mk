@@ -4,4 +4,10 @@
     <item name="nav_bkg" type="color">#f581c2</item>
     <item name="account_dashboard_back" type="color">#52aff7</item>
     <item name="hint_text_color" type="color">#a7a7a7</item>
+    <item name="comm_day_bg_color" type="color">#f2f6f9</item>
+    <item name="comm_day_text_color" type="color">#949597</item>
+
+    <color name="commItemMoney">#1caa00</color>
+    <color name="commItemStatus">#feb041</color>
+    <color name="commDetailListDivider">#e2e2e2</color>
 </resources>
