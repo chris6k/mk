@@ -26,4 +26,7 @@
     <item name="commItemDetail" type="id"/>
     <item name="commItemMoney" type="id"/>
     <item name="commItemStatus" type="id"/>
+    <item name="chargePhoneInput" type="id"/>
+    <item name="usernameEdit" type="id"/>
+    <item name="chargeAlipayInput" type="id"/>
 </resources>

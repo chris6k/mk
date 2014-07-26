@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
 
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
-                View menuItem = LayoutInflater.from(getBaseContext()).inflate(R.layout.menuitem, null, false);
+                View menuItem = LayoutInflater.from(getBaseContext()).inflate(R.layout.menu_item, null, false);
                 TextView menuText = (TextView) menuItem.findViewById(R.id.leftMenuText);
                 switch (i) {
                     case 0:
