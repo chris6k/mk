@@ -2,10 +2,14 @@ package com.jk.makemoney.component;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+import com.jk.makemoney.R;
 import com.jk.makemoney.beans.UserBaseDetail;
 import com.jk.makemoney.com.jk.makemoney.utils.DateTimeUtils;
 
@@ -76,8 +80,24 @@ public class MkListView extends ListView {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            //TODO
-            return null;
+            Object item = getItem(i);
+            View v;
+            if (item instanceof String) {
+                v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.comm_list_day, null, false);
+                View dateText = v.findViewById(R.id.commDayText);
+                if (dateText instanceof TextView) {
+                    ((TextView) dateText).setText((String) item);
+                }
+            } else if (item instanceof UserBaseDetail) {
+                v = new MkListItem(viewGroup.getContext());
+                ((UserBaseDetail) item).fillItem((MkListItem) v);
+            } else {
+                v = new LinearLayout(viewGroup.getContext());
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+                v.setLayoutParams(params);
+                ((LinearLayout) v).setOrientation(LinearLayout.HORIZONTAL);
+            }
+            return v;
         }
 
         @Override

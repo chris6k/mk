@@ -63,6 +63,16 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                         break;
                     case 1:
                         menuText.setText("收支明细");
+                        menuText.setClickable(true);
+                        menuText.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                CommissionFragment myFragment = new CommissionFragment();
+                                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                transaction.replace(R.id.mainBody, myFragment).commit();
+                                mainLayout.closeDrawer(mainMenu);
+                            }
+                        });
                         break;
                     case 2:
                         menuText.setText("赚钱功能");

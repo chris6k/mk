@@ -1,5 +1,7 @@
 package com.jk.makemoney.com.jk.makemoney.utils;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.Date;
  *         日期工具类
  */
 public final class DateTimeUtils {
+    private static final String TAG = "DateTimeUtils";
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
@@ -37,5 +40,14 @@ public final class DateTimeUtils {
             return 0;
         }
 
+    }
+
+    public static Date convert(String s) {
+        try {
+            return simpleDateFormat.parse(s);
+        } catch (ParseException e) {
+            Log.e(TAG, "convert string to date failed", e);
+        }
+        return null;
     }
 }

@@ -1,5 +1,8 @@
 package com.jk.makemoney.beans;
 
+import android.view.View;
+import com.jk.makemoney.component.MkListItem;
+
 import java.util.Date;
 
 /**
@@ -14,5 +17,12 @@ public class UserCommDetail extends UserBaseDetail {
 
     public UserCommDetail(Date dateDay, String detail, int amount) {
         super(dateDay, detail, amount);
+    }
+
+    @Override
+    public void fillItem(MkListItem item) {
+        item.setDetail(getDetail());
+        item.setMoney(String.valueOf(getAmount()));
+        item.getItemStatus().setVisibility(View.GONE);
     }
 }

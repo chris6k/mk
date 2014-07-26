@@ -7,7 +7,7 @@
     <item name="comm_day_bg_color" type="color">#f2f6f9</item>
     <item name="comm_day_text_color" type="color">#949597</item>
 
-    <color name="commItemMoney">#1caa00</color>
-    <color name="commItemStatus">#feb041</color>
-    <color name="commDetailListDivider">#e2e2e2</color>
+    <color name="comm_item_money">#1caa00</color>
+    <color name="comm_item_status">#feb041</color>
+    <color name="comm_detail_list_divider">#e2e2e2</color>
 </resources>

@@ -1,5 +1,7 @@
 package com.jk.makemoney.beans;
 
+import com.jk.makemoney.component.MkListItem;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -73,4 +75,11 @@ public abstract class UserBaseDetail implements Serializable {
         }
         return result;
     }
+
+    /**
+     * 初始化桌面组件
+     *
+     * @param v
+     */
+    public abstract void fillItem(MkListItem item);
 }
