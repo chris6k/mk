@@ -1,4 +1,4 @@
-package com.jk.makemoney;
+package com.jk.makemoney.activitys;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.jk.makemoney.R;
 
 public class MainActivity extends Activity implements DrawerLayout.DrawerListener {
     private DrawerLayout mainLayout;
