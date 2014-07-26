@@ -23,6 +23,6 @@ public class UserCommDetail extends UserBaseDetail {
     public void fillItem(MkListItem item) {
         item.setDetail(getDetail());
         item.setMoney(String.valueOf(getAmount()));
-        item.getItemStatus().setVisibility(View.GONE);
+//        item.getItemStatus().setVisibility(View.GONE);
     }
 }

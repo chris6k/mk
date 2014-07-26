@@ -6,12 +6,11 @@
               android:background="@android:color/white"
         >
 
-    <LinearLayout
+    <RelativeLayout
             android:background="@color/nav_bkg"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:padding="2dp"
-            android:orientation="horizontal">
+            android:padding="2dp">
 
         <ImageView
                 android:layout_gravity="center_vertical"
@@ -21,18 +20,20 @@
                 android:src="@drawable/arrowl_selector"
                 android:layout_width="50dp"
                 android:paddingLeft="5dp"
+                android:layout_alignParentLeft="true"
                 android:layout_height="fill_parent"/>
 
         <TextView
+                android:gravity="center"
                 android:id="@id/navText"
                 android:textColor="@android:color/white"
-                android:textSize="50sp"
+                android:textSize="35sp"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="@string/main_top_nav_name"
                 />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
             android:orientation="vertical"

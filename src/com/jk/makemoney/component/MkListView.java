@@ -31,6 +31,7 @@ public class MkListView extends ListView {
         } else {
             dataMap.putAll(UserBaseDetail.mix(newData));
         }
+        setAdapter(new MkListAdaptor(dataMap));
     }
 
 
@@ -89,8 +90,9 @@ public class MkListView extends ListView {
                     ((TextView) dateText).setText((String) item);
                 }
             } else if (item instanceof UserBaseDetail) {
-                v = new MkListItem(viewGroup.getContext());
-                ((UserBaseDetail) item).fillItem((MkListItem) v);
+                MkListItem mkListItem = new MkListItem(viewGroup.getContext());
+                ((UserBaseDetail) item).fillItem(mkListItem);
+                v = mkListItem.getContainer();
             } else {
                 v = new LinearLayout(viewGroup.getContext());
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
