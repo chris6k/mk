@@ -20,10 +20,11 @@
          >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
             android:paddingLeft="16dp"
+            android:layout_gravity="left|center_vertical"
             android:weightSum="2" >
 
                 <TextView
@@ -46,15 +47,17 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
             </LinearLayout>
-			<ImageView
-                    android:id="@id/exchangeArrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:paddingRight="5dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/arrowr_selector" />
+
+        <ImageView
+            android:id="@id/exchangeArrow"
+            android:layout_width="18dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center_vertical"
+            android:clickable="true"
+            android:layout_marginLeft="-31dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/grayarrowr" />
+
     </LinearLayout>
     <ImageView
             android:src="@color/commDetailListDivider"
@@ -97,14 +100,14 @@
                         android:layout_height="fill_parent"/>
             </LinearLayout>
 			<ImageView
-                    android:id="@id/exchangeArrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:paddingRight="5dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/arrowr_selector" />
+            android:id="@id/exchangeArrow"
+            android:layout_width="18dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center_vertical"
+            android:clickable="true"
+            android:layout_marginLeft="-31dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/grayarrowr" />
     </LinearLayout>
 <ImageView
             android:src="@color/commDetailListDivider"
