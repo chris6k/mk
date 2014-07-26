@@ -2,14 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_marginTop="11dp"
-              android:background="@android:color/white"
+              
+              android:background="@color/chargelist_bg_color"
               android:layout_height="fill_parent">
-
+<ImageView
+            android:src="@color/commDetailListDivider"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="11dp"
+            android:layout_height="1dp"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="11dp"
+        
+        android:background="@android:color/white"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
          >
@@ -36,14 +41,14 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="快速充值，充的多送的多"
-                        android:textSize="16sp"
+                        android:textSize="12sp"
                         android:textColor="@color/hint_text_color"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
             </LinearLayout>
 			<ImageView
                     android:id="@id/exchangeArrow"
-                    android:layout_width="111dp"
+                    android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:clickable="true"
@@ -51,11 +56,15 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/arrowr_selector" />
     </LinearLayout>
-    
+    <ImageView
+            android:src="@color/commDetailListDivider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="11dp"
+      
+        android:background="@android:color/white"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
          >
@@ -82,14 +91,14 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="直接提现，快速安全"
-                        android:textSize="16sp"
+                        android:textSize="12sp"
                         android:textColor="@color/hint_text_color"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
             </LinearLayout>
 			<ImageView
                     android:id="@id/exchangeArrow"
-                    android:layout_width="111dp"
+                    android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:clickable="true"
@@ -97,5 +106,8 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/arrowr_selector" />
     </LinearLayout>
-
+<ImageView
+            android:src="@color/commDetailListDivider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"/>
 </LinearLayout>

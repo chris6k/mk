@@ -10,4 +10,5 @@
     <color name="commItemMoney">#1caa00</color>
     <color name="commItemStatus">#feb041</color>
     <color name="commDetailListDivider">#e2e2e2</color>
+    <color name="chargelist_bg_color">#f0efef</color>
 </resources>
