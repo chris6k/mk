@@ -33,7 +33,6 @@
                     android:layout_marginLeft="20dp"
                     android:id="@id/totalCommissionText"
                     android:gravity="left|center_vertical"
-                    android:text="10.0"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:textColor="@android:color/black"
@@ -67,7 +66,6 @@
                     android:layout_marginLeft="20dp"
                     android:id="@id/totalPaymentText"
                     android:gravity="left|center_vertical"
-                    android:text="10.0"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="24sp"
@@ -102,7 +100,6 @@
                     android:gravity="left|center_vertical"
                     android:textStyle="bold"
                     android:textSize="24sp"
-                    android:text="22"
                     android:id="@id/totalBalanceText"
                     android:textColor="@android:color/black"
                     android:layout_width="fill_parent"
@@ -119,6 +116,9 @@
             android:id="@id/commDetailList"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:divider="@color/comm_detail_list_divider"
+            android:dividerHeight="1dp"
+            android:background="@android:color/white"
             android:cacheColorHint="@android:color/white"
             />
 </LinearLayout>
