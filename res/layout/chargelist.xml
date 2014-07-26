@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_marginTop="11dp"
+              android:background="@android:color/white"
+              android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="11dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:weightSum="2" >
+
+                <TextView
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="话费充值"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"/>
+
+                
+
+                <TextView
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="快速充值，充的多送的多"
+                        android:textSize="16sp"
+                        android:textColor="@color/hint_text_color"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"/>
+            </LinearLayout>
+			<ImageView
+                    android:id="@id/exchangeArrow"
+                    android:layout_width="111dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:paddingRight="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/arrowr_selector" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="11dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:weightSum="2" >
+
+                <TextView
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="支付宝提现"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"/>
+
+                
+
+                <TextView
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="直接提现，快速安全"
+                        android:textSize="16sp"
+                        android:textColor="@color/hint_text_color"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"/>
+            </LinearLayout>
+			<ImageView
+                    android:id="@id/exchangeArrow"
+                    android:layout_width="111dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:paddingRight="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/arrowr_selector" />
+    </LinearLayout>
+
+</LinearLayout>
