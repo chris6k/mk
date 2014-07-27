@@ -91,6 +91,11 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
     }
 
     @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
     public void onDrawerSlide(View view, float v) {
 
     }

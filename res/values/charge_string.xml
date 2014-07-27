@@ -5,4 +5,5 @@
     <string name="charge_phone_title_text">手机号码:</string>
     <string name="charge_hint_text">(仅限中国大陆用户)</string>
     <string name="charge_title_text">请输入手机号码</string>
+    <string name="invite_count_text">邀请数:</string>
 </resources>

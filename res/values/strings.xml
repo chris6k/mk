@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">赚钱达人</string>
     <string name="image_content_description">image</string>
+    <string name="invite_rank_text">名次:</string>
 </resources>

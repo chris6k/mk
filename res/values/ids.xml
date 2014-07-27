@@ -26,7 +26,20 @@
     <item name="commItemDetail" type="id"/>
     <item name="commItemMoney" type="id"/>
     <item name="commItemStatus" type="id"/>
-    <item name="chargePhoneInput" type="id"/>
+    <item name="chargePhoneEdit" type="id"/>
     <item name="usernameEdit" type="id"/>
-    <item name="chargeAlipayInput" type="id"/>
+    <item name="chargeAlipayEdit" type="id"/>
+    <item name="inviteChampion" type="id"/>
+    <item name="inviteSecondPlace" type="id"/>
+    <item name="inviteCount" type="id"/>
+    <item name="inviteThirdPlace" type="id"/>
+    <item name="inviteRewardThirdPlace" type="id"/>
+    <item name="inviteRewardSecondPlace" type="id"/>
+    <item name="inviteRewardChampion" type="id"/>
+    <item name="copyLink" type="id"/>
+    <item name="userIdText" type="id"/>
+    <item name="chargeSubmitButton" type="id"/>
+    <item name="chargeAmountEdit" type="id"/>
+    <item name="chargeAlipay" type="id"/>
+    <item name="chargePhone" type="id"/>
 </resources>

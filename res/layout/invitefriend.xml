@@ -28,33 +28,33 @@
                     android:textColor="@android:color/black"
                     android:layout_width="fill_parent"
                     android:layout_height="50sp"/>
-			<LinearLayout
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-	            <TextView
-	                    android:layout_marginLeft="20dp"
-	                    android:id=""
-	                    android:text="8"
-	                   
-	                    android:gravity="center"
-	                    android:textStyle="bold"
-	                    android:textSize="24sp"
-	                    android:textColor="@color/account_dashboard_back"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="50sp"/>
-	            <TextView
-	                    android:layout_marginLeft="20dp"
-	                    android:id=""
-	                    android:text="个"
-	                    android:gravity="center"
-	                    android:textStyle="bold"
-	                    android:textSize="16sp"
-	                    android:textColor="@color/buttonPressedColor"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="50sp"/>
-        		</LinearLayout>
+
+            <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp">
+
+                <TextView
+                        android:id="@id/inviteCount"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/account_dashboard_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50sp"/>
+
+                <TextView
+                        android:layout_marginLeft="20dp"
+                        android:text="个"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/buttonPressedColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50sp"/>
+            </LinearLayout>
         </LinearLayout>
 
         <ImageView
@@ -78,56 +78,55 @@
                     android:textColor="@android:color/black"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"/>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
 
-	            <TextView
-	                    android:layout_marginLeft="20dp"
-	                    android:id="@id/totalPaymentText"
-	                    android:gravity="center"
-	                    android:text="188"
-	                    android:textColor="@color/invite_money_color"
-	                    android:textStyle="bold"
-	                    android:textSize="24sp"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="50sp"/>
-	            
-	            <TextView
-	                    android:layout_marginLeft="20dp"
-	                    android:id="@id/totalPaymentText"
-	                    android:gravity="center"
-	                    android:text="金"
-	                    android:textColor="@color/buttonPressedColor"
-	                    android:textStyle="bold"
-	                    android:textSize="16sp"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="50sp"/>
+            <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp">
+
+                <TextView
+                        android:id="@id/totalPaymentText"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:textColor="@color/invite_money_color"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50sp"/>
+
+                <TextView
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="金"
+                        android:textColor="@color/buttonPressedColor"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50sp"/>
             </LinearLayout>
         </LinearLayout>
-		
-        
-	</LinearLayout>
-	
+
+
+    </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="match_parent"
                   android:background="@color/invitefriend_bg_color"
                   android:orientation="vertical"
                   android:layout_marginTop="2dp"
-                  
+
                   android:layout_height="wrap_content">
 
 
         <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
-                
+
                 android:orientation="horizontal">
 
             <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="0dp"
                     android:textColor="@color/buttonPressedColor"
                     android:textSize="15sp"
                     android:layout_marginTop="15dp"
@@ -136,7 +135,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1"/>
 
-            
+
         </LinearLayout>
 
         <LinearLayout
@@ -145,7 +144,7 @@
                 android:orientation="horizontal">
 
             <TextView
-                    android:text="名次:"
+                    android:text="@string/invite_rank_text"
                     android:gravity="left|center_vertical"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -155,38 +154,41 @@
                     android:layout_weight="1"/>
 
             <TextView
-                    android:id=""
-                    android:text="第一名"
+                    android:text="@string/champion_label_text"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
                     android:textSize="15sp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"/>
-			<ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-            <TextView
-                    android:id=""
-                    android:text="第二名"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:textColor="@color/invitefriend_rank_color"
-                    android:textSize="15sp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"/>
+
             <ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
             <TextView
-                    android:id=""
-                    android:text="第三名"
+                    android:text="@string/second_place_label_text"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
+            <TextView
+                    android:text="@string/third_place_label_text"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -201,7 +203,7 @@
                 android:orientation="horizontal">
 
             <TextView
-                    android:text="邀请数:"
+                    android:text="@string/invite_count_text"
                     android:gravity="left|center_vertical"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -211,38 +213,41 @@
                     android:layout_weight="1"/>
 
             <TextView
-                    android:id=""
-                    android:text="388"
+                    android:id="@id/inviteChampion"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
                     android:textSize="15sp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"/>
-			<ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-            <TextView
-                    android:id=""
-                    android:text="366"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:textColor="@color/invitefriend_rank_color"
-                    android:textSize="15sp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"/>
+
             <ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
             <TextView
-                    android:id=""
-                    android:text="333"
+                    android:id="@id/inviteSecondPlace"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
+            <TextView
+                    android:id="@id/inviteThirdPlace"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -250,7 +255,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1"/>
         </LinearLayout>
-        
+
         <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
@@ -258,7 +263,7 @@
                 android:orientation="horizontal">
 
             <TextView
-                    android:text="奖励:"
+                    android:text="@string/reward_title"
                     android:gravity="left|center_vertical"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -268,38 +273,41 @@
                     android:layout_weight="1"/>
 
             <TextView
-                    android:id=""
-                    android:text="10000.00"
+                    android:id="@id/inviteRewardChampion"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
                     android:textSize="15sp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"/>
-			<ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-            <TextView
-                    android:id=""
-                    android:text="8888.88"
-                    android:gravity="center"
-                    android:layout_width="fill_parent"
-                    android:textColor="@color/invitefriend_rank_color"
-                    android:textSize="15sp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"/>
+
             <ImageView
-                android:src="@color/cut_line_color"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
             <TextView
-                    android:id=""
-                    android:text="6666.66"
+                    android:id="@id/inviteRewardSecondPlace"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:contentDescription="@string/image_content_description"
+                    android:src="@color/cut_line_color"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"/>
+
+            <TextView
+                    android:id="@id/inviteRewardThirdPlace"
                     android:gravity="center"
                     android:layout_width="fill_parent"
                     android:textColor="@color/invitefriend_rank_color"
@@ -308,116 +316,128 @@
                     android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
-    
+
     <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@id/userIdText"
                 android:layout_width="fill_parent"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/nav_bkg"
                 android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                />
 
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="我的ID:001"
-                    android:background="@color/nav_bkg"
-                    android:layout_height="40dp"
-                    />
 
-            
-        </LinearLayout>
-        
+    </LinearLayout>
+
     <ImageView
-                android:src="@color/copy_broad_color"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_height="1dp"/>
-    
-    <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="28dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="horizontal">
-			<ImageView
-                android:src="@color/copy_broad_color"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-            <TextView
-                    android:text="http://mkdr.com/mk.apk?id=001"
-                    
-                    android:background="@color/invitefriend_bg_color"
-                    android:gravity="left"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/invitefriend_rank_color"
-                    android:textSize="15sp"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/copy_border_bg"
-                    android:layout_weight="1"/>
-			<ImageView
-                android:src="@color/copy_broad_color"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-			
-			<TextView
-                    android:text="@string/copyBoardLabel"
-                    android:gravity="center"
-                    android:layout_width="190dp"
-                    android:textColor="@color/invitefriend_rank_color"
-                    android:textSize="15sp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"/>
-            <ImageView
-                android:src="@color/copy_broad_color"
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"/>
-        </LinearLayout>
-        <ImageView
-                android:src="@color/copy_broad_color"
-                android:layout_width="fill_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_height="1dp"/>
-        
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+            android:contentDescription="@string/image_content_description"
+            android:src="@color/copy_broad_color"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="1dp"/>
 
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="@string/inviteButtonLabel"
-                    android:background="@color/account_dashboard_back"
-                    android:layout_height="fill_parent"
-                    />    
-        </LinearLayout>
-        
-        <LinearLayout
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:contentDescription="@string/image_content_description"
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+
+        <TextView
+                android:contentDescription="@string/image_content_description"
+                android:text="http://mkdr.com/mk.apk?id=001"
+                android:background="@color/invitefriend_bg_color"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:textColor="@color/invitefriend_rank_color"
+                android:textSize="15sp"
+                android:layout_height="fill_parent"
+                android:src="@drawable/copy_border_bg"
+                android:layout_weight="1"/>
+
+        <ImageView
+                android:contentDescription="@string/image_content_description"
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+
+        <Button
+                android:id="@id/copyLink"
+                android:background="@drawable/item_selector"
+                android:text="@string/copyBoardLabel"
+                android:gravity="center"
+                android:layout_width="190dp"
+                android:textColor="@color/invitefriend_rank_color"
+                android:textSize="15sp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"/>
+
+        <ImageView
+                android:contentDescription="@string/image_content_description"
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+    <ImageView
+            android:contentDescription="@string/image_content_description"
+            android:src="@color/copy_broad_color"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="1dp"/>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/inviteButtonLabel"
+                android:background="@color/account_dashboard_back"
+                android:layout_height="fill_parent"
+                />
+    </LinearLayout>
+
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:textColor="@color/invite_tips_color"
-                    android:textSize="15sp"
-                    android:gravity="left"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="@string/inviteTipsLabel"
-                    android:layout_height="fill_parent"
-                    />    
-        </LinearLayout>
+        <TextView
+                android:layout_width="fill_parent"
+                android:textColor="@color/invite_tips_color"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/inviteTipsLabel"
+                android:layout_height="fill_parent"
+                />
+    </LinearLayout>
 </LinearLayout>

@@ -6,4 +6,8 @@
     <item name="inviteTipsLabel" type="string">提示: 邀请好友可以额外得到10%的朋友收入作为奖励</item>
     <item name="copyBoardLabel" type="string">复制到剪贴板</item>
     <item name="inviteRankLabel" type="string">邀请好友奖励排名</item>
+    <string name="reward_title">奖励:</string>
+    <string name="champion_label_text">第一名</string>
+    <string name="second_place_label_text">第二名</string>
+    <string name="third_place_label_text">第三名</string>
 </resources>

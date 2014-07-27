@@ -1,5 +1,6 @@
 package com.jk.makemoney.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -53,7 +54,8 @@ public class DashboardFragment extends BasicFragment {
         exchangeArr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "I'm exchangeArr", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ChargeBoardActivity.class);
+                startActivity(intent);
             }
         });
         downloadApp.setOnClickListener(new View.OnClickListener() {
