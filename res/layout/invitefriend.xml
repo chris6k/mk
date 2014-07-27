@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="@string/totalFriendLabel"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50sp"/>
+			<LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+	            <TextView
+	                    android:layout_marginLeft="20dp"
+	                    android:id=""
+	                    android:text="8"
+	                   
+	                    android:gravity="center"
+	                    android:textStyle="bold"
+	                    android:textSize="24sp"
+	                    android:textColor="@color/account_dashboard_back"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="50sp"/>
+	            <TextView
+	                    android:layout_marginLeft="20dp"
+	                    android:id=""
+	                    android:text="个"
+	                    android:gravity="center"
+	                    android:textStyle="bold"
+	                    android:textSize="16sp"
+	                    android:textColor="@color/buttonPressedColor"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="50sp"/>
+        		</LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:text="@string/totalRewardLabel"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+	            <TextView
+	                    android:layout_marginLeft="20dp"
+	                    android:id="@id/totalPaymentText"
+	                    android:gravity="center"
+	                    android:text="188"
+	                    android:textColor="@color/invite_money_color"
+	                    android:textStyle="bold"
+	                    android:textSize="24sp"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="50sp"/>
+	            
+	            <TextView
+	                    android:layout_marginLeft="20dp"
+	                    android:id="@id/totalPaymentText"
+	                    android:gravity="center"
+	                    android:text="金"
+	                    android:textColor="@color/buttonPressedColor"
+	                    android:textStyle="bold"
+	                    android:textSize="16sp"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="50sp"/>
+            </LinearLayout>
+        </LinearLayout>
+		
+        
+	</LinearLayout>
+	
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:background="@color/invitefriend_bg_color"
+                  android:orientation="vertical"
+                  android:layout_marginTop="2dp"
+                  
+                  android:layout_height="wrap_content">
+
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/buttonPressedColor"
+                    android:textSize="15sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/inviteRankLabel"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="名次:"
+                    android:gravity="left|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <TextView
+                    android:id=""
+                    android:text="第一名"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+			<ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="第二名"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+            <ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="第三名"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="邀请数:"
+                    android:gravity="left|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <TextView
+                    android:id=""
+                    android:text="388"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+			<ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="366"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+            <ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="333"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+        
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="奖励:"
+                    android:gravity="left|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+
+            <TextView
+                    android:id=""
+                    android:text="10000.00"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+			<ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="8888.88"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+            <ImageView
+                android:src="@color/cut_line_color"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:id=""
+                    android:text="6666.66"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="我的ID:001"
+                    android:background="@color/nav_bkg"
+                    android:layout_height="40dp"
+                    />
+
+            
+        </LinearLayout>
+        
+    <ImageView
+                android:src="@color/copy_broad_color"
+                android:layout_width="fill_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="1dp"/>
+    
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="28dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+			<ImageView
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+            <TextView
+                    android:text="http://mkdr.com/mk.apk?id=001"
+                    
+                    android:background="@color/invitefriend_bg_color"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/copy_border_bg"
+                    android:layout_weight="1"/>
+			<ImageView
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+			
+			<TextView
+                    android:text="@string/copyBoardLabel"
+                    android:gravity="center"
+                    android:layout_width="190dp"
+                    android:textColor="@color/invitefriend_rank_color"
+                    android:textSize="15sp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"/>
+            <ImageView
+                android:src="@color/copy_broad_color"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"/>
+        </LinearLayout>
+        <ImageView
+                android:src="@color/copy_broad_color"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="1dp"/>
+        
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/inviteButtonLabel"
+                    android:background="@color/account_dashboard_back"
+                    android:layout_height="fill_parent"
+                    />    
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/invite_tips_color"
+                    android:textSize="15sp"
+                    android:gravity="left"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/inviteTipsLabel"
+                    android:layout_height="fill_parent"
+                    />    
+        </LinearLayout>
+</LinearLayout>

@@ -10,4 +10,10 @@
     <color name="comm_item_status">#feb041</color>
     <color name="comm_detail_list_divider">#e2e2e2</color>
     <color name="chargelist_bg_color">#f0efef</color>
+    <color name="cut_line_color">#d4d5d7</color>
+    <color name="invitefriend_bg_color">#ebedec</color>
+    <color name="invitefriend_rank_color">#706f81</color>
+    <color name="copy_broad_color">#dbdbdb</color>
+    <color name="invite_tips_color">#8c8c8e</color>
+    <color name="invite_money_color">#fe6138</color>
 </resources>

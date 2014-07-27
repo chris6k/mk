@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="totalFriendLabel" type="string">邀请好友数</item>
+    <item name="totalRewardLabel" type="string">奖励金额</item>
+    <item name="inviteButtonLabel" type="string">点击邀请朋友</item>
+    <item name="inviteTipsLabel" type="string">提示: 邀请好友可以额外得到10%的朋友收入作为奖励</item>
+    <item name="copyBoardLabel" type="string">复制到剪贴板</item>
+    <item name="inviteRankLabel" type="string">邀请好友奖励排名</item>
+</resources>
