@@ -67,8 +67,8 @@ public class DashboardFragment extends BasicFragment {
         inviteFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "I'm inviteFriends", Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(getActivity(), InviteFriendActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -362,6 +362,7 @@
 
         <TextView
                 android:contentDescription="@string/image_content_description"
+                android:id="@id/inviteCodeText"
                 android:text="http://mkdr.com/mk.apk?id=001"
                 android:background="@color/invitefriend_bg_color"
                 android:gravity="left"
@@ -411,6 +412,8 @@
             android:orientation="horizontal">
 
         <TextView
+                android:clickable="true"
+                android:id="@id/inviteFriendSubmit"
                 android:layout_width="fill_parent"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"

@@ -42,4 +42,6 @@
     <item name="chargeAmountEdit" type="id"/>
     <item name="chargeAlipay" type="id"/>
     <item name="chargePhone" type="id"/>
+    <item name="inviteFriendSubmit" type="id"/>
+    <item name="inviteCodeText" type="id"/>
 </resources>

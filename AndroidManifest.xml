@@ -23,5 +23,6 @@
         <activity android:name=".activitys.AliChargeActivity"/>
         <activity android:name=".activitys.MobChargeActivity"/>
         <activity android:name=".activitys.ChargeBoardActivity"/>
+        <activity android:name=".activitys.InviteFriendActivity"/>
     </application>
 </manifest>
