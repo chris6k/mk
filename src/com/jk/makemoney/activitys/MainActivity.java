@@ -77,6 +77,16 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                         break;
                     case 2:
                         menuText.setText("赚钱功能");
+                        menuText.setClickable(true);
+                        menuText.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                IrrigationFragment myFragment = new IrrigationFragment();
+                                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                transaction.replace(R.id.mainBody, myFragment).commit();
+                                mainLayout.closeDrawer(mainMenu);
+                            }
+                        });
                         break;
                     default:
                         break;

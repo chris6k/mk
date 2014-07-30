@@ -44,4 +44,7 @@
     <item name="chargePhone" type="id"/>
     <item name="inviteFriendSubmit" type="id"/>
     <item name="inviteCodeText" type="id"/>
+    <item name="irrigationList" type="id"/>
+    <item name="irrItemIcon" type="id"/>
+    <item name="irrItemName" type="id"/>
 </resources>
