@@ -20,6 +20,16 @@ public class IrrItemDetail implements Serializable {
     //任务action
     private String action;
 
+    public IrrItemDetail() {
+    }
+
+    public IrrItemDetail(String name, String iconPath, int iconId, String action) {
+        this.name = name;
+        this.iconPath = iconPath;
+        this.iconId = iconId;
+        this.action = action;
+    }
+
     public String getName() {
         return name;
     }

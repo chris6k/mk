@@ -7,8 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.jk.makemoney.R;
+import com.jk.makemoney.beans.IrrItemDetail;
 import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.component.IrrListView;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author chris.xue
@@ -26,6 +30,9 @@ public class IrrigationFragment extends BasicFragment {
     }
 
     private void initData() {
+        List<IrrItemDetail> irrItemDetails = Arrays.asList(new IrrItemDetail("小米", null, R.drawable.youmi, null),
+                new IrrItemDetail("优米", null, R.drawable.youmi, null));
+        irrListView.append(irrItemDetails);
     }
 
     private void bindComponent(View view) {

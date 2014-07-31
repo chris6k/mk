@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.jk.makemoney.beans.IrrItemDetail;
-import com.jk.makemoney.beans.UserBaseDetail;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author chris.xue
@@ -18,7 +18,7 @@ import java.util.*;
  */
 public class IrrListView extends ListView {
     //数据列表
-    private Map<Date, List<UserBaseDetail>> dataMap;
+    private List<IrrItemDetail> irrItemDetails;
 
     public IrrListView(Context context) {
         super(context);
@@ -32,14 +32,24 @@ public class IrrListView extends ListView {
         super(context, attrs, defStyle);
     }
 
+    public void append(List<IrrItemDetail> newData) {
+        if (irrItemDetails == null) {
+            irrItemDetails = newData;
+        } else {
+            irrItemDetails.addAll(newData);
+        }
+        setAdapter(new IrrListAdaptor(irrItemDetails));
+    }
+
     private static final class IrrListAdaptor extends BaseAdapter {
         private List<IrrItemDetail> items;
 
-        private IrrListAdaptor(Map<Date, List<IrrItemDetail>> dateListMap) {
-            if (dateListMap == null || dateListMap.isEmpty()) {
-                items = new ArrayList<IrrItemDetail>(0);
+        private IrrListAdaptor(List<IrrItemDetail> irrItemDetails) {
+            if (irrItemDetails == null || irrItemDetails.isEmpty()) {
+                items = new LinkedList<IrrItemDetail>();
+            } else {
+                items = irrItemDetails;
             }
-            items = new LinkedList<IrrItemDetail>();
         }
 
         @Override
