@@ -2,6 +2,13 @@
 *.apk
 *.ap_
 
+# Built application files
+*.classpath
+*.project
+*.settings
+*.project.properties
+
+
 # Files for the Dalvik VM
 *.dex
 

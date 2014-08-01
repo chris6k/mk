@@ -46,10 +46,22 @@ public class InviteFriendActivity extends BasicActivity {
         TextViewUtils.setText(rewardChampion, "100");
         TextViewUtils.setText(rewardSecondPlace, "100");
         TextViewUtils.setText(rewardThirdPlace, "100");
+        // 首先在您的Activity中添加如下成员变量
+        final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
+        // 设置分享内容
+        mController.setShareContent("我用赚钱达人给你发红包啦，可以兑换成现金，赶快来领吧！");
+        // 设置分享图片, 参数2为图片的url地址
+        mController.setShareMedia(new UMImage(getActivity(), 
+                                              "http://www.umeng.com/images/pic/banner_module_social.png"));
         inviteFriendSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getBaseContext(), "提交", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onClick(View v) {
+                // 是否只有已登录用户才能打开分享选择页
+                mController.openShare(getActivity(), false);
             }
         });
         copyLink.setOnClickListener(new View.OnClickListener() {
