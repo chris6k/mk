@@ -28,7 +28,7 @@
                 android:textColor="@android:color/white"
                 android:id="@id/dashboardBalance"
                 android:text="@string/balance_default_value"
-                android:textSize="50sp"
+                android:textSize="56sp"
                 android:layout_toLeftOf="@id/dashboardYuan"
                 android:layout_centerVertical="true"
                 android:textScaleX="1.1"
@@ -43,7 +43,7 @@
                 android:layout_alignBaseline="@id/dashboardBalance"
                 android:textSize="25sp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:text="@string/balance_yuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -204,7 +204,7 @@
     <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            
             android:orientation="vertical"
             android:background="@color/cut_line_color">
 
@@ -216,7 +216,9 @@
                 android:id="@id/downloadApp"
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="70dp">
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_height="80dp">
 
             <RelativeLayout
                     android:layout_width="100dp"
@@ -241,7 +243,7 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="@string/download_app_text"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textColor="@android:color/black"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
@@ -250,7 +252,7 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="@string/hint_download_app_text"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/hint_text_color"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
@@ -267,7 +269,9 @@
                 android:id="@id/inviteFriends"
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="70dp">
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_height="80dp">
 
             <RelativeLayout
                     android:layout_width="100dp"
@@ -292,7 +296,7 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="@string/invite_friends_text"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textColor="@android:color/black"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
@@ -301,7 +305,7 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:text="@string/hint_invite_friends_text"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/hint_text_color"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"/>
