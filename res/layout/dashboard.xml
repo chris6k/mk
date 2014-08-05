@@ -221,7 +221,7 @@
                 android:layout_height="80dp">
 
             <RelativeLayout
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="fill_parent">
 
                 <ImageView
@@ -274,7 +274,7 @@
                 android:layout_height="80dp">
 
             <RelativeLayout
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="fill_parent">
 
                 <ImageView
