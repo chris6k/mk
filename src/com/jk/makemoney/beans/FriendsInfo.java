@@ -1,5 +1,9 @@
 package com.jk.makemoney.beans;
 
+import com.jk.makemoney.com.jk.makemoney.utils.NumberUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -14,6 +18,11 @@ public class FriendsInfo implements Serializable {
     private int lastMonthCommission;
 
     public FriendsInfo() {
+    }
+
+    public FriendsInfo(JSONObject jsonObject) throws JSONException {
+        friendCount = jsonObject.getInt("friendCount");
+        lastMonthCommission = jsonObject.getInt("lastMonthCommission");
     }
 
     public FriendsInfo(int friendCount, int lastMonthCommission) {
@@ -35,6 +44,10 @@ public class FriendsInfo implements Serializable {
 
     public void setLastMonthCommission(int lastMonthCommission) {
         this.lastMonthCommission = lastMonthCommission;
+    }
+
+    public String getLastMonthCommissionYuan() {
+        return NumberUtils.formatFloat((float) lastMonthCommission / 100);
     }
 
     @Override

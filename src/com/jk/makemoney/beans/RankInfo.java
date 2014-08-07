@@ -2,11 +2,14 @@ package com.jk.makemoney.beans;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+
 /**
  * @author chris.xue
  *         排位信息
  */
-public class RankInfo implements Comparable<RankInfo> {
+public class RankInfo implements Comparable<RankInfo>, Serializable {
+    private static final long serialVersionUID = 163164563933826686L;
     //记录顺序号
     private int id;
     //好友总数

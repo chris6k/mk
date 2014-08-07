@@ -1,10 +1,13 @@
 package com.jk.makemoney.beans;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
  * @author chris.xue
- *         账户
+ *         账户信息
  */
 public class Account implements Serializable {
     private static final long serialVersionUID = -5380180340817505034L;
@@ -34,6 +37,16 @@ public class Account implements Serializable {
     }
 
     public Account() {
+    }
+
+    public Account(JSONObject accountInfo) throws JSONException {
+        this.id = accountInfo.getInt("id");
+        this.username = accountInfo.getString("username");
+        this.balance = accountInfo.getInt("balance");
+        this.todayTaskCommission = accountInfo.getInt("todayTaskCommission");
+        this.todayFriendCommission = accountInfo.getInt("todayFriendCommission");
+        this.yestTaskCommission = accountInfo.getInt("yestTaskCommission");
+        this.yestFriendCommission = accountInfo.getInt("yestFriendCommission");
     }
 
     public int getId() {

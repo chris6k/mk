@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jk.makemoney.R;
-import com.jk.makemoney.beans.UserBaseDetail;
+import com.jk.makemoney.beans.UserBilling;
 import com.jk.makemoney.com.jk.makemoney.utils.DateTimeUtils;
 
 import java.util.*;
@@ -22,14 +22,14 @@ import java.util.*;
  */
 public class MkListView extends ListView {
     //数据列表
-    private Map<Date, List<UserBaseDetail>> dataMap;
+    private Map<Date, List<UserBilling>> dataMap;
 
 
-    public void append(List<UserBaseDetail> newData) {
+    public void append(List<UserBilling> newData) {
         if (dataMap == null) {
-            dataMap = UserBaseDetail.mix(newData);
+            dataMap = UserBilling.mix(newData);
         } else {
-            dataMap.putAll(UserBaseDetail.mix(newData));
+            dataMap.putAll(UserBilling.mix(newData));
         }
         setAdapter(new MkListAdaptor(dataMap));
     }
@@ -51,14 +51,14 @@ public class MkListView extends ListView {
     private static final class MkListAdaptor extends BaseAdapter {
         private List<Object> items;
 
-        private MkListAdaptor(Map<Date, List<UserBaseDetail>> dateListMap) {
+        private MkListAdaptor(Map<Date, List<UserBilling>> dateListMap) {
             if (dateListMap == null || dateListMap.isEmpty()) {
                 items = new ArrayList<Object>(0);
             }
             items = new LinkedList<Object>();
-            for (Map.Entry<Date, List<UserBaseDetail>> entry : dateListMap.entrySet()) {
+            for (Map.Entry<Date, List<UserBilling>> entry : dateListMap.entrySet()) {
                 items.add(DateTimeUtils.extractDayOfYear(entry.getKey()));
-                for (UserBaseDetail ub : entry.getValue()) {
+                for (UserBilling ub : entry.getValue()) {
                     items.add(ub);
                 }
             }
@@ -89,9 +89,9 @@ public class MkListView extends ListView {
                 if (dateText instanceof TextView) {
                     ((TextView) dateText).setText((String) item);
                 }
-            } else if (item instanceof UserBaseDetail) {
+            } else if (item instanceof UserBilling) {
                 MkListItem mkListItem = new MkListItem(viewGroup.getContext());
-                ((UserBaseDetail) item).fillItem(mkListItem);
+                ((UserBilling) item).fillItem(mkListItem);
                 v = mkListItem.getContainer();
             } else {
                 v = new LinearLayout(viewGroup.getContext());

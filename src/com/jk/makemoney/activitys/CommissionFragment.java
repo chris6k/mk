@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.jk.makemoney.R;
-import com.jk.makemoney.beans.UserBaseDetail;
-import com.jk.makemoney.beans.UserCommDetail;
-import com.jk.makemoney.beans.UserPaymentDetail;
+import com.jk.makemoney.beans.UserBilling;
 import com.jk.makemoney.com.jk.makemoney.utils.DateTimeUtils;
 import com.jk.makemoney.component.MkListView;
 
@@ -47,15 +45,15 @@ public class CommissionFragment extends BasicFragment {
         totalComm.setText("100");
         totalPayment.setText("10");
         totalBalance.setText("90");
-        List<UserBaseDetail> demoData = new ArrayList<UserBaseDetail>(10);
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-24"), "收入", 10));
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-25"), "收入", 20));
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-24"), "收入", 30));
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-25"), "收入", 20));
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-26"), "收入", 10));
-        demoData.add(new UserCommDetail(DateTimeUtils.convert("2014-07-26"), "收入", 10));
-        demoData.add(new UserPaymentDetail(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 5, true));
-        demoData.add(new UserPaymentDetail(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 5, false));
+        List<UserBilling> demoData = new ArrayList<UserBilling>(10);
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-24"), "收入", 10, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-25"), "收入", 20, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-24"), "收入", 30, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-25"), "收入", 20, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "收入", 10, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "收入", 10, 0));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 0, 5));
+        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 0, 5));
         mkListView.append(demoData);
     }
 
