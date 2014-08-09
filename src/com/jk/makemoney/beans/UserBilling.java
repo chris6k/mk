@@ -2,6 +2,8 @@ package com.jk.makemoney.beans;
 
 import com.jk.makemoney.com.jk.makemoney.utils.NumberUtils;
 import com.jk.makemoney.component.MkListItem;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.*;
@@ -20,8 +22,11 @@ public class UserBilling implements Serializable {
     private int debits;
     //出帐
     private int credits;
-    //创建日期
-    private Date createdAt;
+    //状态 0-ready 1-ok
+    private int status = 0;
+    //类型 0-debits 1-credits
+    private int type = 0;
+
 
     public UserBilling() {
     }
@@ -31,6 +36,27 @@ public class UserBilling implements Serializable {
         this.description = description;
         this.debits = debits;
         this.credits = credits;
+    }
+
+    public UserBilling(JSONObject jsonObject) throws JSONException {
+        if (jsonObject.has("dateDay")) {
+            this.dateDay = (Date) jsonObject.get("dateDay");
+        }
+        if (jsonObject.has("description")) {
+            this.description = jsonObject.getString("description");
+        }
+        if (jsonObject.has("debits")) {
+            this.debits = jsonObject.getInt("debits");
+        }
+        if (jsonObject.has("credits")) {
+            this.credits = jsonObject.getInt("credits");
+        }
+        if (jsonObject.has("type")) {
+            this.type = jsonObject.getInt("type");
+        }
+        if (jsonObject.has("status")) {
+            this.status = jsonObject.getInt("status");
+        }
     }
 
     public Date getDateDay() {

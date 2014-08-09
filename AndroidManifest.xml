@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.jk.makemoney">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          android:versionCode="1"
+          android:versionName="1.0"
+          package="com.jk.makemoney">
 
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15"/>
-    <application android:allowBackup="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-        <activity android:label="@string/app_name" android:name=".activitys.MainActivity">
+    <uses-sdk
+            android:minSdkVersion="15"
+            android:targetSdkVersion="15"/>
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <activity
+                android:label="@string/app_name"
+                android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -13,21 +24,57 @@
         <activity android:name=".activitys.MobChargeActivity"/>
         <activity android:name=".activitys.ChargeBoardActivity"/>
         <activity android:name=".activitys.InviteFriendActivity"/>
-    <meta-data android:name="UMENG_APPKEY" android:value="53d71e5056240b40ac0098be"/>
-    <activity android:configChanges="orientation|keyboard" android:launchMode="singleTask" android:name="com.umeng.socialize.view.ShareActivity" android:noHistory="true" android:theme="@style/Theme.UMDialog" android:windowSoftInputMode="stateVisible|adjustResize"/>
-    <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name=".yxapi.YXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-    <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name=".wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-    <activity android:configChanges="orientation|navigation|keyboardHidden" android:name="com.renn.rennsdk.oauth.OAuthActivity"/>
-    <activity android:configChanges="orientation|keyboard" android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
-    <intent-filter>
-    <action android:name="android.intent.action.VIEW"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-    <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="tencent添加你的App Id"/>
-    </intent-filter>
-    </activity>
-    <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <meta-data
+                android:name="UMENG_APPKEY"
+                android:value="53d71e5056240b40ac0098be"/>
+        <!-- MK_USER_ID的占位符，生成APK时需动态替换 -->
+        <meta-data
+                android:name="MK_INVITE_CODE"
+                android:value="00000000000"/>
+
+        <activity
+                android:configChanges="orientation|keyboard"
+                android:launchMode="singleTask"
+                android:name="com.umeng.socialize.view.ShareActivity"
+                android:noHistory="true"
+                android:theme="@style/Theme.UMDialog"
+                android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:exported="true"
+                android:name=".yxapi.YXEntryActivity"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:exported="true"
+                android:name=".wxapi.WXEntryActivity"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+                android:configChanges="orientation|navigation|keyboardHidden"
+                android:name="com.renn.rennsdk.oauth.OAuthActivity"/>
+        <activity
+                android:configChanges="orientation|keyboard"
+                android:launchMode="singleTask"
+                android:name="com.tencent.tauth.AuthActivity"
+                android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent添加你的App Id"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.tencent.connect.common.AssistActivity"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
+
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>

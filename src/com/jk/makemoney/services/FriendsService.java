@@ -6,9 +6,12 @@ import com.jk.makemoney.com.jk.makemoney.utils.Constants;
 import com.jk.makemoney.com.jk.makemoney.utils.MkHttp;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author chris.xue
@@ -25,15 +28,22 @@ public class FriendsService {
      * @param userId
      * @return
      */
-    private FriendsInfo readInfoById(int userId) {
+    private FriendsInfo readInfoById(int userId) throws Exception {
         HttpGet get = new HttpGet(INFO_ENDPOINT + "?uid=" + userId);
+        SecurityService.appendAuthHeader(get, null);
         try {
             HttpResponse response = MkHttp.getInstance().send(get).get(1000, TimeUnit.MILLISECONDS);
-            String data = response.getEntity().toString();
+            if (response.getStatusLine().getStatusCode() != 200) {
+                return null;
+            }
+            String data = EntityUtils.toString(response.getEntity(), "utf-8");
             JSONObject friendInfo = new JSONObject(data);
             return new FriendsInfo(friendInfo);
         } catch (Exception e) {
             Log.e(TAG, "read friends info by userId[" + userId + "] failed", e);
+            if (e instanceof TimeoutException || e instanceof ExecutionException) {
+                throw e;
+            }
             return null;
         }
     }
