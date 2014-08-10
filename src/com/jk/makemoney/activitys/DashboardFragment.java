@@ -1,5 +1,6 @@
 package com.jk.makemoney.activitys;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -59,11 +60,15 @@ public class DashboardFragment extends BasicFragment {
             }
         });
         downloadApp.setOnClickListener(new View.OnClickListener() {
-            @Override
+        	@Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "I'm downloadApp", Toast.LENGTH_SHORT).show();
+                IrrigationFragment myFragment = new IrrigationFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.mainBody, myFragment).commit();
+
             }
         });
+            
         inviteFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

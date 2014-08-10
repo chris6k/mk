@@ -7,7 +7,7 @@
 
     <ImageView
             android:layout_marginLeft="20dp"
-            android:src="@color/nav_bkg"
+            android:src="@drawable/user"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
 
