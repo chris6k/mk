@@ -37,11 +37,11 @@
                     android:textSize="24sp"
                     android:textColor="@android:color/black"
                     android:layout_width="fill_parent"
-                    android:layout_height="50sp"/>
+                    android:layout_height="30sp"/>
         </LinearLayout>
 
         <ImageView
-                android:src="@color/hint_text_color"
+                android:src="@color/cut_line_color"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_width="1dp"
@@ -70,11 +70,11 @@
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_width="fill_parent"
-                    android:layout_height="50sp"/>
+                    android:layout_height="30sp"/>
         </LinearLayout>
 
         <ImageView
-                android:src="@color/hint_text_color"
+                android:src="@color/cut_line_color"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:layout_width="1dp"
@@ -103,7 +103,7 @@
                     android:id="@id/totalBalanceText"
                     android:textColor="@android:color/black"
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"/>
+                    android:layout_height="30dp"/>
         </LinearLayout>
     </LinearLayout>
 

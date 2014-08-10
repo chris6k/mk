@@ -76,7 +76,7 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                         });
                         break;
                     case 2:
-                        menuText.setText("赚钱功能");
+                        menuText.setText("帮助中心");
                         menuText.setClickable(true);
                         menuText.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -88,6 +88,7 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                             }
                         });
                         break;
+                        
                     default:
                         break;
                 }
