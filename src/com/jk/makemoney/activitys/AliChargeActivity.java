@@ -1,6 +1,7 @@
 package com.jk.makemoney.activitys;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,23 +10,38 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jk.makemoney.R;
+import com.jk.makemoney.services.PaymentService;
 
 /**
  * @author chris.xue
+ *         支付宝支付
  */
 public class AliChargeActivity extends BasicActivity {
     private EditText usernameEdit;
     private EditText chargeAlipayEdit;
     private Button submit;
+    private PaymentService paymentService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindComponent();
+        paymentService = new PaymentService();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AliChargeActivity.this, "提交,账户=" + usernameEdit.getText().toString() + ",金额=" + chargeAlipayEdit.getText().toString(), Toast.LENGTH_SHORT).show();
+                String account = usernameEdit.getText().toString();
+                String amount = chargeAlipayEdit.getText().toString();
+                if (TextUtils.isEmpty(account) || TextUtils.isEmpty(amount)) {
+                    Toast.makeText(AliChargeActivity.this, "请输入账户和金额", Toast.LENGTH_SHORT).show();
+                } else {
+                    String err = paymentService.askForSettlement(account, amount, 2);
+                    if (!TextUtils.isEmpty(err)) {
+                        Toast.makeText(AliChargeActivity.this, err, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(AliChargeActivity.this, "支付申请提交成功，我们将尽快处理", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }

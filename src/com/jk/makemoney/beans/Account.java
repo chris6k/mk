@@ -17,6 +17,8 @@ public class Account implements Serializable {
     private String username;
     //用户余额
     private int balance;
+    //总收入
+    private int commission;
     //今日任务收入
     private int todayTaskCommission;
     //今日好友分成收入
@@ -26,10 +28,12 @@ public class Account implements Serializable {
     //昨日好友分成收入
     private int yestFriendCommission;
 
-    public Account(int id, String username, int balance, int todayTaskCommission, int todayFriendCommission, int yestTaskCommission, int yestFriendCommission) {
+    public Account(int id, String username, int balance, int commission, int todayTaskCommission,
+                   int todayFriendCommission, int yestTaskCommission, int yestFriendCommission) {
         this.id = id;
         this.username = username;
         this.balance = balance;
+        this.commission = commission;
         this.todayTaskCommission = todayTaskCommission;
         this.todayFriendCommission = todayFriendCommission;
         this.yestTaskCommission = yestTaskCommission;
@@ -47,6 +51,7 @@ public class Account implements Serializable {
         this.todayFriendCommission = accountInfo.getInt("todayFriendCommission");
         this.yestTaskCommission = accountInfo.getInt("yestTaskCommission");
         this.yestFriendCommission = accountInfo.getInt("yestFriendCommission");
+        this.commission = accountInfo.getInt("commission");
     }
 
     public int getId() {
@@ -105,12 +110,21 @@ public class Account implements Serializable {
         this.yestFriendCommission = yestFriendCommission;
     }
 
+    public int getCommission() {
+        return commission;
+    }
+
+    public void setCommission(int commission) {
+        this.commission = commission;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", balance=" + balance +
+                ", commission=" + commission +
                 ", todayTaskCommission=" + todayTaskCommission +
                 ", todayFriendCommission=" + todayFriendCommission +
                 ", yestTaskCommission=" + yestTaskCommission +

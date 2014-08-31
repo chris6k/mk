@@ -7,12 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jk.makemoney.R;
+import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.beans.UserBilling;
-import com.jk.makemoney.com.jk.makemoney.utils.DateTimeUtils;
+import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.component.MkListView;
+import com.jk.makemoney.services.AccountService;
+import com.jk.makemoney.services.BillingService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,11 +26,15 @@ public class CommissionFragment extends BasicFragment {
     private TextView totalComm;
     private TextView totalPayment;
     private TextView totalBalance;
+    private AccountService accountService;
+    private BillingService billingService;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        accountService = new AccountService();
+        billingService = new BillingService();
         bindComponent(view);
         initData();
         return view;
@@ -42,19 +49,20 @@ public class CommissionFragment extends BasicFragment {
     }
 
     private void initData() {
-        totalComm.setText("100");
-        totalPayment.setText("10");
-        totalBalance.setText("90");
-        List<UserBilling> demoData = new ArrayList<UserBilling>(10);
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-24"), "收入", 10, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-25"), "收入", 20, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-24"), "收入", 30, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-25"), "收入", 20, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "收入", 10, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "收入", 10, 0));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 0, 5));
-        demoData.add(new UserBilling(DateTimeUtils.convert("2014-07-26"), "支付宝取现", 0, 5));
-        mkListView.append(demoData);
+        try {
+            Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
+            totalComm.setText(account.getCommission());
+            totalPayment.setText(account.getCommission() - account.getBalance());
+            totalBalance.setText(account.getBalance());
+            List<UserBilling> billingList = billingService.getBilling(0, 10);
+            mkListView.append(billingList);
+        } catch (Exception e) {
+            totalComm.setText("0");
+            totalPayment.setText("0");
+            totalBalance.setText("0");
+            mkListView.setAdapter(null);
+            Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

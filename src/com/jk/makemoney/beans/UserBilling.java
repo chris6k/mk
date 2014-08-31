@@ -22,10 +22,6 @@ public class UserBilling implements Serializable {
     private int debits;
     //出帐
     private int credits;
-    //状态 0-ready 1-ok
-    private int status = 0;
-    //类型 0-debits 1-credits
-    private int type = 0;
 
 
     public UserBilling() {
@@ -50,12 +46,6 @@ public class UserBilling implements Serializable {
         }
         if (jsonObject.has("credits")) {
             this.credits = jsonObject.getInt("credits");
-        }
-        if (jsonObject.has("type")) {
-            this.type = jsonObject.getInt("type");
-        }
-        if (jsonObject.has("status")) {
-            this.status = jsonObject.getInt("status");
         }
     }
 

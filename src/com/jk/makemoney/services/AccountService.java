@@ -38,7 +38,7 @@ public class AccountService {
      * @param userId
      * @return
      */
-    public Account readAccountById(int userId) throws Exception {
+    public Account readAccountById(String userId) throws Exception {
         HttpGet get = new HttpGet(INFO_ENDPOINT + "?uid=" + userId);
         try {
             HttpResponse response = MkHttp.getInstance().send(get).get(1000, TimeUnit.MILLISECONDS);

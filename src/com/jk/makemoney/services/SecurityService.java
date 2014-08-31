@@ -1,9 +1,10 @@
 package com.jk.makemoney.services;
 
 import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
-import com.tencent.weibo.sdk.android.component.sso.tools.MD5Tools;
 import org.apache.http.client.methods.HttpUriRequest;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Map;
 
 /**
@@ -16,15 +17,16 @@ public class SecurityService {
      * @param params
      */
     public static void appendAuthHeader(HttpUriRequest request, Map<String, String> params) {
-        StringBuilder sb = new StringBuilder(UserProfile.getInstance().getToken());
-        if (params != null) {
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                sb.append(entry.getKey()).append(entry.getValue());
-            }
+        request.setHeader("mk_token", encode(UserProfile.getInstance().getToken()));
+        request.setHeader("mk_id", UserProfile.getInstance().getUserId());
+    }
+
+    private static String encode(String base) {
+        try {
+            return URLEncoder.encode(base, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            return base;
         }
-        request.setHeader("sign", MD5Tools.toMD5(sb.toString()));
-        request.setHeader("bs", sb.toString());
-        request.setHeader("id", UserProfile.getInstance().getUserId());
     }
 
 }

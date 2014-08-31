@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import com.jk.makemoney.R;
+import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
+import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.services.AccountService;
 
 /**
  * @author
@@ -25,23 +28,34 @@ public class DashboardFragment extends BasicFragment {
     private View yesterdayReward;
     private View exchangeArr;
     private View dashboardBalance;
+    private AccountService accountService;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        accountService = new AccountService();
         bindComponent(view);
         initData();
-        
         return view;
     }
 
     private void initData() {
-        TextViewUtils.setText(todayComm, "12.8");
-        TextViewUtils.setText(todayReward, "12.8");
-        TextViewUtils.setText(yesterdayComm, "12.8");
-        TextViewUtils.setText(yesterdayReward, "12.8");
-        TextViewUtils.setText(dashboardBalance, "120");
+        try {
+            Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
+            TextViewUtils.setText(todayComm, String.valueOf(account.getTodayTaskCommission()));
+            TextViewUtils.setText(todayReward, String.valueOf(account.getTodayFriendCommission()));
+            TextViewUtils.setText(yesterdayComm, String.valueOf(account.getYestTaskCommission()));
+            TextViewUtils.setText(yesterdayReward, String.valueOf(account.getYestFriendCommission()));
+            TextViewUtils.setText(dashboardBalance, String.valueOf(account.getBalance()));
+        } catch (Exception e) {
+            TextViewUtils.setText(todayComm, "0");
+            TextViewUtils.setText(todayReward, "0");
+            TextViewUtils.setText(yesterdayComm, "0");
+            TextViewUtils.setText(yesterdayReward, "0");
+            TextViewUtils.setText(dashboardBalance, "0");
+            Toast.makeText(getActivity(), "获取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void bindComponent(View view) {
@@ -61,16 +75,16 @@ public class DashboardFragment extends BasicFragment {
             }
         });
         downloadApp.setOnClickListener(new View.OnClickListener() {
-        	@Override
+            @Override
             public void onClick(View view) {
                 IrrigationFragment myFragment = new IrrigationFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.mainBody, myFragment).commit();
-                
+
 
             }
         });
-            
+
         inviteFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +111,6 @@ public class DashboardFragment extends BasicFragment {
     @Override
     protected void initTitle(View title) {
         // do nothing;
-    	
     }
 
     @Override

@@ -31,26 +31,32 @@ public class PaymentService {
      * @param payment
      * @return
      */
-    public boolean askForSettlement(int payment) throws Exception {
+    public String askForSettlement(String account, String payment, int paymentType) {
         HttpPost post = new HttpPost(PAYMENT_ASK_FOR_ENDPOINT);
         Map<String, String> map = new TreeMap<String, String>();
         List<NameValuePair> params = new ArrayList<NameValuePair>(1);
-        params.add(new BasicNameValuePair("payment", String.valueOf(payment)));
+        params.add(new BasicNameValuePair("payment", payment));
+        params.add(new BasicNameValuePair("account", account));
+        params.add(new BasicNameValuePair("paymentType", String.valueOf(paymentType)));
         map.put("payment", String.valueOf(payment));
         SecurityService.appendAuthHeader(post, map);
         try {
             post.setEntity(new UrlEncodedFormEntity(params, "utf-8"));
             HttpResponse response = MkHttp.getInstance().send(post).get(1000, TimeUnit.MILLISECONDS);
             if (response.getStatusLine().getStatusCode() != 200) {
-                return false;
+                return "错误的参数";
             }
             String content = EntityUtils.toString(response.getEntity(), "utf-8");
             JSONObject jsonObject = new JSONObject(content);
-            return (jsonObject.has("result") && jsonObject.getBoolean("result"));
+            if (jsonObject.has("result") && jsonObject.getBoolean("result")) {
+                return null;
+            } else {
+                return jsonObject.has("msg") ? jsonObject.getString("msg") : "申请支付失败，发生未知错误";
+            }
         } catch (Exception e) {
             Log.e(TAG, "ask for settlement failed", e);
         }
-        return false;
+        return "申请支付失败，发生未知错误";
     }
 
 }
