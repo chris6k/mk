@@ -32,6 +32,7 @@ public class DashboardFragment extends BasicFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         bindComponent(view);
         initData();
+        
         return view;
     }
 
@@ -65,6 +66,7 @@ public class DashboardFragment extends BasicFragment {
                 IrrigationFragment myFragment = new IrrigationFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.mainBody, myFragment).commit();
+                
 
             }
         });
@@ -95,6 +97,7 @@ public class DashboardFragment extends BasicFragment {
     @Override
     protected void initTitle(View title) {
         // do nothing;
+    	
     }
 
     @Override

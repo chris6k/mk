@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.jk.makemoney.R;
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
+
 
 /**
  * @author chris.xue
@@ -18,6 +21,7 @@ public abstract class BasicActivity extends Activity implements View.OnClickList
     private View title;
     private ViewGroup bodyContainer;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.template);
@@ -28,6 +32,7 @@ public abstract class BasicActivity extends Activity implements View.OnClickList
         arrowLeft.setOnClickListener(this);
         initTitle(title);
         initBody(bodyContainer);
+		
     }
 
 

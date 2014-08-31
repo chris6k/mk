@@ -26,6 +26,7 @@ public class IrrigationFragment extends BasicFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         bindComponent(view);
         initData();
+        
         return view;
     }
 
@@ -33,6 +34,7 @@ public class IrrigationFragment extends BasicFragment {
         List<IrrItemDetail> irrItemDetails = Arrays.asList(new IrrItemDetail("小米", null, R.drawable.youmi, null),
                 new IrrItemDetail("优米", null, R.drawable.youmi, null));
         irrListView.append(irrItemDetails);
+        
     }
 
     private void bindComponent(View view) {

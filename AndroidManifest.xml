@@ -12,6 +12,31 @@
             android:icon="@drawable/app_icon"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <!--youmi config-->
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="net.youmi.android.ExpService"
+            android:exported="false" >
+        </service>
+        <receiver
+            android:name="net.youmi.android.AdReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="net.youmi.android.offers.OffersReceiver"
+            android:exported="false" >
+        </receiver>
         <activity
                 android:label="@string/app_name"
                 android:name=".activitys.MainActivity">
@@ -73,31 +98,7 @@
                 android:name="com.tencent.connect.common.AssistActivity"
                 android:screenOrientation="portrait"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <!--youmi config-->
-        <activity
-            android:name="net.youmi.android.AdBrowser"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <service
-            android:name="net.youmi.android.AdService"
-            android:exported="false" >
-        </service>
-        <service
-            android:name="net.youmi.android.ExpService"
-            android:exported="false" >
-        </service>
-        <receiver
-            android:name="net.youmi.android.AdReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="net.youmi.android.offers.OffersReceiver"
-            android:exported="false" >
-        </receiver>
+        
     </application>
 
     <uses-permission android:name="android.permission.GET_TASKS"/>
