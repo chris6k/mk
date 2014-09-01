@@ -3,17 +3,24 @@ package com.jk.makemoney.activitys;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jk.makemoney.R;
+import com.jk.makemoney.beans.FriendsInfo;
 import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
+import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.services.AccountService;
+import com.jk.makemoney.services.FriendsService;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
 import com.umeng.socialize.media.UMImage;
+
+import java.util.List;
 
 /**
  * @author chris.xue
@@ -32,25 +39,50 @@ public class InviteFriendActivity extends BasicActivity {
     private View rewardSecondPlace;
     private View rewardThirdPlace;
     private UMSocialService mController;
+    private FriendsService friendsService;
+    private AccountService accountService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        friendsService = new FriendsService();
+        accountService = new AccountService();
         initComponent();
         initData();
     }
 
     private void initData() {
-        TextViewUtils.setText(inviteCount, "100");
-        TextViewUtils.setText(totalPaymentText, "1000.0");
-        TextViewUtils.setText(userIdText, "用户ID:1");
-        TextViewUtils.setText(inviteCodeText, "http://test.com");
-        TextViewUtils.setText(inviteChampion, "100");
-        TextViewUtils.setText(inviteSecondPlace, "100");
-        TextViewUtils.setText(inviteThirdPlace, "100");
-        TextViewUtils.setText(rewardChampion, "100");
-        TextViewUtils.setText(rewardSecondPlace, "100");
-        TextViewUtils.setText(rewardThirdPlace, "100");
+        try {
+            FriendsInfo friendsInfo = friendsService.readInfoById(UserProfile.getInstance().getUserId());
+            List<FriendsInfo> rankingList = friendsService.readRankingList();
+            TextViewUtils.setText(inviteCount, String.valueOf(friendsInfo.getFriendCount()));
+            TextViewUtils.setText(totalPaymentText, friendsInfo.getLastMonthCommissionYuan());
+            TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
+            TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
+            if (rankingList != null) {
+                int i = 0;
+                TextViewUtils.setText(inviteChampion, String.valueOf(rankingList.get(i++).getFriendCount()));
+                TextViewUtils.setText(inviteSecondPlace, String.valueOf(rankingList.get(i++).getFriendCount()));
+                TextViewUtils.setText(inviteThirdPlace, String.valueOf(rankingList.get(i).getFriendCount()));
+                i = 0;
+                TextViewUtils.setText(rewardChampion, rankingList.get(i++).getLastMonthCommissionYuan());
+                TextViewUtils.setText(rewardSecondPlace, rankingList.get(i++).getLastMonthCommissionYuan());
+                TextViewUtils.setText(rewardThirdPlace, rankingList.get(i).getLastMonthCommissionYuan());
+            }
+        } catch (Exception e) {
+            Log.e("InviteFriendActivity", "get user info err", e);
+            TextViewUtils.setText(inviteCount, "0");
+            TextViewUtils.setText(totalPaymentText, "0");
+            TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
+            TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
+
+            TextViewUtils.setText(inviteChampion, "0");
+            TextViewUtils.setText(inviteSecondPlace, "0");
+            TextViewUtils.setText(inviteThirdPlace, "0");
+            TextViewUtils.setText(rewardChampion, "0");
+            TextViewUtils.setText(rewardSecondPlace, "0");
+            TextViewUtils.setText(rewardThirdPlace, "0");
+        }
         //
         mController = UMServiceFactory.getUMSocialService("com.umeng.share");
         //

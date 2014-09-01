@@ -1,10 +1,14 @@
 package com.jk.makemoney.beans;
 
+import android.util.Log;
 import com.jk.makemoney.com.jk.makemoney.utils.NumberUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author chris.xue
@@ -56,5 +60,18 @@ public class FriendsInfo implements Serializable {
                 "friendCount=" + friendCount +
                 ", lastMonthCommission=" + lastMonthCommission +
                 '}';
+    }
+
+    public static List<FriendsInfo> parse(JSONArray rankingArray) {
+        assert rankingArray != null;
+        List<FriendsInfo> friendsInfos = new ArrayList<FriendsInfo>(rankingArray.length());
+        for (int i = 0; i < rankingArray.length(); i++) {
+            try {
+                friendsInfos.add(new FriendsInfo(rankingArray.getJSONObject(i)));
+            } catch (Exception e) {
+                Log.e("FriendsInfo", "parse ranking list failed", e);
+            }
+        }
+        return friendsInfos;
     }
 }
