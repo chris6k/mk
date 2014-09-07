@@ -41,15 +41,17 @@ public class FriendsService {
                 return null;
             }
             String data = EntityUtils.toString(response.getEntity(), "utf-8");
-            JSONObject friendInfo = new JSONObject(data);
-            return new FriendsInfo(friendInfo);
+            JSONObject result = new JSONObject(data);
+            if (result.getBoolean("result")) {
+                return new FriendsInfo(result.getJSONObject("data"));
+            }
         } catch (Exception e) {
             Log.e(TAG, "read friends info by userId[" + userId + "] failed", e);
             if (e instanceof TimeoutException || e instanceof ExecutionException) {
                 throw e;
             }
-            return null;
         }
+        return null;
     }
 
     public List<FriendsInfo> readRankingList() throws Exception {

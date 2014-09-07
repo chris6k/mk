@@ -45,12 +45,12 @@ public class Account implements Serializable {
 
     public Account(JSONObject accountInfo) throws JSONException {
         this.id = accountInfo.getInt("id");
-        this.balance = accountInfo.getInt("balance");
-        this.todayTaskCommission = accountInfo.getInt("todayTaskCommission");
-        this.todayFriendCommission = accountInfo.getInt("todayFriendCommission");
-        this.yestTaskCommission = accountInfo.getInt("yestTaskCommission");
-        this.yestFriendCommission = accountInfo.getInt("yestFriendCommission");
-        this.commission = accountInfo.getInt("commission");
+        this.balance = accountInfo.has("balance") ? accountInfo.getInt("balance") : 0;
+        this.todayTaskCommission = accountInfo.has("todayTaskCommission") ? accountInfo.getInt("todayTaskCommission") : 0;
+        this.todayFriendCommission = accountInfo.has("todayFriendCommission") ? accountInfo.getInt("todayFriendCommission") : 0;
+        this.yestTaskCommission = accountInfo.has("yestTaskCommission") ? accountInfo.getInt("yestTaskCommission") : 0;
+        this.yestFriendCommission = accountInfo.has("yestFriendCommission") ? accountInfo.getInt("yestFriendCommission") : 0;
+        this.commission = accountInfo.has("commission") ? accountInfo.getInt("commission") : 0;
     }
 
     public int getId() {
