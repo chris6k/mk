@@ -28,14 +28,15 @@ import java.util.concurrent.Future;
  *         http client
  */
 public class MkHttp {
-    private static MkHttp instance;
     private static ExecutorService service = Executors.newSingleThreadExecutor();
 
     public static MkHttp getInstance() {
-        return instance;
+        return MkHttpGen.instance;
     }
 
     private static class MkHttpGen {
+        private static MkHttp instance;
+
         static {
             instance = new MkHttp();
         }
@@ -58,8 +59,8 @@ public class MkHttp {
         // be using the HttpClient.
         ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
         client = new DefaultHttpClient(cm, params);
-        client.getParams().setParameter("http.socket.timeout", 2000);
-        client.getParams().setParameter("http.connection.timeout", 2000);
+        client.getParams().setParameter("http.socket.timeout", 20000);
+        client.getParams().setParameter("http.connection.timeout", 20000);
         client.getParams().setParameter("http.connection-manager.timeout", 4000L);
         client.getParams().setParameter("http.protocol.head-body-timeout", 4000L);
 

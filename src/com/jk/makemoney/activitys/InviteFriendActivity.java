@@ -15,6 +15,7 @@ import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.FriendsService;
+import com.jk.makemoney.utils.ThreadPool;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -52,37 +53,47 @@ public class InviteFriendActivity extends BasicActivity {
     }
 
     private void initData() {
-        try {
-            FriendsInfo friendsInfo = friendsService.readInfoById(UserProfile.getInstance().getUserId());
-            List<FriendsInfo> rankingList = friendsService.readRankingList();
-            TextViewUtils.setText(inviteCount, String.valueOf(friendsInfo.getFriendCount()));
-            TextViewUtils.setText(totalPaymentText, friendsInfo.getLastMonthCommissionYuan());
-            TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
-            TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
-            if (rankingList != null) {
-                int i = 0;
-                TextViewUtils.setText(inviteChampion, String.valueOf(rankingList.get(i++).getFriendCount()));
-                TextViewUtils.setText(inviteSecondPlace, String.valueOf(rankingList.get(i++).getFriendCount()));
-                TextViewUtils.setText(inviteThirdPlace, String.valueOf(rankingList.get(i).getFriendCount()));
-                i = 0;
-                TextViewUtils.setText(rewardChampion, rankingList.get(i++).getLastMonthCommissionYuan());
-                TextViewUtils.setText(rewardSecondPlace, rankingList.get(i++).getLastMonthCommissionYuan());
-                TextViewUtils.setText(rewardThirdPlace, rankingList.get(i).getLastMonthCommissionYuan());
-            }
-        } catch (Exception e) {
-            Log.e("InviteFriendActivity", "get user info err", e);
-            TextViewUtils.setText(inviteCount, "0");
-            TextViewUtils.setText(totalPaymentText, "0");
-            TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
-            TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
+        ThreadPool.getInstance().exec(new Runnable() {
+            @Override
+            public void run() {
 
-            TextViewUtils.setText(inviteChampion, "0");
-            TextViewUtils.setText(inviteSecondPlace, "0");
-            TextViewUtils.setText(inviteThirdPlace, "0");
-            TextViewUtils.setText(rewardChampion, "0");
-            TextViewUtils.setText(rewardSecondPlace, "0");
-            TextViewUtils.setText(rewardThirdPlace, "0");
-        }
+                try {
+                    final FriendsInfo friendsInfo = friendsService.readInfoById(UserProfile.getInstance().getUserId());
+                    final List<FriendsInfo> rankingList = friendsService.readRankingList();
+                    getHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            TextViewUtils.setText(inviteCount, String.valueOf(friendsInfo.getFriendCount()));
+                            TextViewUtils.setText(totalPaymentText, friendsInfo.getLastMonthCommissionYuan());
+                            TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
+                            TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
+                            View[] rankTextView = new View[]{inviteChampion, inviteSecondPlace, inviteThirdPlace};
+                            View[] rewardTextView = new View[]{rewardChampion, rewardSecondPlace, rewardThirdPlace};
+                            if (rankingList != null) {
+                                for (int i = 0; i < rankingList.size() && i < rankTextView.length; i++) {
+                                    TextViewUtils.setText(rankTextView[i], String.valueOf(rankingList.get(i).getFriendCount()));
+                                    TextViewUtils.setText(rewardTextView[i], rankingList.get(i).getLastMonthCommissionYuan());
+                                }
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.e("InviteFriendActivity", "get user info err", e);
+                }
+            }
+        });
+        TextViewUtils.setText(inviteCount, "0");
+        TextViewUtils.setText(totalPaymentText, "0");
+        TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
+        TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
+
+        TextViewUtils.setText(inviteChampion, "0");
+        TextViewUtils.setText(inviteSecondPlace, "0");
+        TextViewUtils.setText(inviteThirdPlace, "0");
+        TextViewUtils.setText(rewardChampion, "0");
+        TextViewUtils.setText(rewardSecondPlace, "0");
+        TextViewUtils.setText(rewardThirdPlace, "0");
         //
         mController = UMServiceFactory.getUMSocialService("com.umeng.share");
         //

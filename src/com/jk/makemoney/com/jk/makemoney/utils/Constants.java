@@ -13,7 +13,7 @@ public final class Constants {
 
     static {
         //TODO init data from properties files.
-        API_HOST = "http://localhost/mk/api";
+        API_HOST = "http://192.168.10.105:8000/mk/api";
         USER_ID = 0;
     }
 }

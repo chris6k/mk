@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="charge_submit_text">提交</string>
+    <string name="charge_submiting_text">提交中</string>
     <string name="charge_count_title_text">充值金额:</string>
     <string name="charge_phone_title_text">手机号码:</string>
     <string name="charge_hint_text">(仅限中国大陆用户)</string>

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.services.PaymentService;
+import com.jk.makemoney.utils.ThreadPool;
 
 /**
  * @author chris.xue
@@ -30,17 +31,34 @@ public class AliChargeActivity extends BasicActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String account = usernameEdit.getText().toString();
-                String amount = chargeAlipayEdit.getText().toString();
+                final String account = usernameEdit.getText().toString();
+                final String amount = chargeAlipayEdit.getText().toString();
                 if (TextUtils.isEmpty(account) || TextUtils.isEmpty(amount)) {
                     Toast.makeText(AliChargeActivity.this, "请输入账户和金额", Toast.LENGTH_SHORT).show();
                 } else {
-                    String err = paymentService.askForSettlement(account, amount, 2);
-                    if (!TextUtils.isEmpty(err)) {
-                        Toast.makeText(AliChargeActivity.this, err, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(AliChargeActivity.this, "支付申请提交成功，我们将尽快处理", Toast.LENGTH_SHORT).show();
-                    }
+                    submit.setEnabled(false);
+                    submit.setText(R.string.charge_submiting_text);
+                    ThreadPool.getInstance().exec(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                String err = paymentService.askForSettlement(account, amount, 2);
+                                if (!TextUtils.isEmpty(err)) {
+                                    Toast.makeText(AliChargeActivity.this, err, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(AliChargeActivity.this, "支付申请提交成功，我们将尽快处理", Toast.LENGTH_SHORT).show();
+                                }
+                            } finally {
+                                getHandler().post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        submit.setText(R.string.charge_submit_text);
+                                        submit.setEnabled(true);
+                                    }
+                                });
+                            }
+                        }
+                    });
                 }
             }
         });

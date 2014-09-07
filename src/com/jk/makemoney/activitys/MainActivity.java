@@ -30,9 +30,7 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
         mainMenu = (ListView) findViewById(R.id.mainMenu);
         View frontItem = LayoutInflater.from(this).inflate(R.layout.left_menu_top, null, false);
         mainMenu.addHeaderView(frontItem);
-        AdManager.getInstance( this).init("149db85904b9d72c", "05e750d4dddcddab", true);
-        OffersManager.getInstance( this).onAppLaunch();
-        OffersManager.getInstance(this).showOffersWall();
+
         mainMenu.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {

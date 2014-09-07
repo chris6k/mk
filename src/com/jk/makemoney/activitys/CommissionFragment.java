@@ -12,9 +12,11 @@ import com.jk.makemoney.R;
 import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.beans.UserBilling;
 import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.component.ListEventNotify;
 import com.jk.makemoney.component.MkListView;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.BillingService;
+import com.jk.makemoney.utils.ThreadPool;
 
 import java.util.List;
 
@@ -40,29 +42,67 @@ public class CommissionFragment extends BasicFragment {
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     private void bindComponent(View view) {
         mkListView = (MkListView) view.findViewById(R.id.commDetailList);
         totalComm = (TextView) view.findViewById(R.id.totalCommissionText);
         totalPayment = (TextView) view.findViewById(R.id.totalPaymentText);
         totalBalance = (TextView) view.findViewById(R.id.totalBalanceText);
+        mkListView.addUpdateNotify(new ListEventNotify() {
+            @Override
+            public void update(int lastCount, MkListView listView) {
+                loadBillingData(lastCount, 10);
+            }
+        });
     }
 
     private void initData() {
-        try {
-            Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
-            totalComm.setText(account.getCommission());
-            totalPayment.setText(account.getCommission() - account.getBalance());
-            totalBalance.setText(account.getBalance());
-            List<UserBilling> billingList = billingService.getBilling(0, 10);
-            mkListView.append(billingList);
-        } catch (Exception e) {
-            totalComm.setText("0");
-            totalPayment.setText("0");
-            totalBalance.setText("0");
-            mkListView.setAdapter(null);
-            Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
-        }
+        ThreadPool.getInstance().exec(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
+                    if (account == null) {
+                        Toast.makeText(getActivity(), "读取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
+                    } else {
+                        getHandler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                totalComm.setText(account.getCommission());
+                                totalPayment.setText(account.getCommission() - account.getBalance());
+                                totalBalance.setText(account.getBalance());
+                            }
+                        });
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        loadBillingData(1, 10);
+        //初始化默认值
+        totalComm.setText("0");
+        totalPayment.setText("0");
+        totalBalance.setText("0");
+        mkListView.setAdapter(null);
+    }
+
+    private void loadBillingData(final int offset, final int count) {
+        ThreadPool.getInstance().exec(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    List<UserBilling> billingList = billingService.getBilling(offset, count);
+                    mkListView.append(billingList);
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

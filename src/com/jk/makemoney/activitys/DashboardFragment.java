@@ -14,6 +14,7 @@ import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.services.AccountService;
+import com.jk.makemoney.utils.ThreadPool;
 
 /**
  * @author
@@ -41,21 +42,32 @@ public class DashboardFragment extends BasicFragment {
     }
 
     private void initData() {
-        try {
-            Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
-            TextViewUtils.setText(todayComm, String.valueOf(account.getTodayTaskCommission()));
-            TextViewUtils.setText(todayReward, String.valueOf(account.getTodayFriendCommission()));
-            TextViewUtils.setText(yesterdayComm, String.valueOf(account.getYestTaskCommission()));
-            TextViewUtils.setText(yesterdayReward, String.valueOf(account.getYestFriendCommission()));
-            TextViewUtils.setText(dashboardBalance, String.valueOf(account.getBalance()));
-        } catch (Exception e) {
-            TextViewUtils.setText(todayComm, "0");
-            TextViewUtils.setText(todayReward, "0");
-            TextViewUtils.setText(yesterdayComm, "0");
-            TextViewUtils.setText(yesterdayReward, "0");
-            TextViewUtils.setText(dashboardBalance, "0");
-            Toast.makeText(getActivity(), "获取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
-        }
+        ThreadPool.getInstance().exec(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
+                    if (account == null) return;
+                    getHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            TextViewUtils.setText(todayComm, String.valueOf(account.getTodayTaskCommission()));
+                            TextViewUtils.setText(todayReward, String.valueOf(account.getTodayFriendCommission()));
+                            TextViewUtils.setText(yesterdayComm, String.valueOf(account.getYestTaskCommission()));
+                            TextViewUtils.setText(yesterdayReward, String.valueOf(account.getYestFriendCommission()));
+                            TextViewUtils.setText(dashboardBalance, String.valueOf(account.getBalance()));
+                        }
+                    });
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        TextViewUtils.setText(todayComm, "0");
+        TextViewUtils.setText(todayReward, "0");
+        TextViewUtils.setText(yesterdayComm, "0");
+        TextViewUtils.setText(yesterdayReward, "0");
+        TextViewUtils.setText(dashboardBalance, "0");
     }
 
     private void bindComponent(View view) {

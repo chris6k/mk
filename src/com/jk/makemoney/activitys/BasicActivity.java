@@ -2,13 +2,13 @@ package com.jk.makemoney.activitys;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.jk.makemoney.R;
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
 
 
 /**
@@ -20,6 +20,7 @@ public abstract class BasicActivity extends Activity implements View.OnClickList
     private View arrowLeft;
     private View title;
     private ViewGroup bodyContainer;
+    private Handler handler;
 
 
     @Override
@@ -28,11 +29,12 @@ public abstract class BasicActivity extends Activity implements View.OnClickList
         super.onCreate(savedInstanceState);
         arrowLeft = findViewById(R.id.navArrowLeft);
         title = findViewById(R.id.navText);
-        bodyContainer = (ViewGroup)findViewById(R.id.body);
+        bodyContainer = (ViewGroup) findViewById(R.id.body);
         arrowLeft.setOnClickListener(this);
+        handler = new Handler(Looper.getMainLooper());
         initTitle(title);
         initBody(bodyContainer);
-		
+
     }
 
 
@@ -63,5 +65,9 @@ public abstract class BasicActivity extends Activity implements View.OnClickList
     @Override
     public void onClick(View view) {
         onNavArrowClick(view);
+    }
+
+    protected Handler getHandler() {
+        return handler;
     }
 }

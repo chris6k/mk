@@ -17,7 +17,7 @@ public class SecurityService {
      * @param params
      */
     public static void appendAuthHeader(HttpUriRequest request, Map<String, String> params) {
-        request.setHeader("mk_token", encode(UserProfile.getInstance().getToken()));
+        request.setHeader("mk_token", UserProfile.getInstance().getToken());
         request.setHeader("mk_id", UserProfile.getInstance().getUserId());
     }
 

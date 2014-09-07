@@ -6,10 +6,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.IrrItemDetail;
 import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.component.IrrListView;
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,15 +29,26 @@ public class IrrigationFragment extends BasicFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         bindComponent(view);
         initData();
-        
+
         return view;
     }
 
     private void initData() {
         List<IrrItemDetail> irrItemDetails = Arrays.asList(new IrrItemDetail("小米", null, R.drawable.youmi, null),
-                new IrrItemDetail("优米", null, R.drawable.youmi, null));
+                new IrrItemDetail("有米", null, R.drawable.youmi, null));
         irrListView.append(irrItemDetails);
-        
+        irrListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 1) {
+                    AdManager adManager = AdManager.getInstance(getActivity());
+                    adManager.init("149db85904b9d72c", "05e750d4dddcddab", true);
+                    OffersManager offersManager = OffersManager.getInstance(getActivity());
+                    offersManager.onAppLaunch();
+                    offersManager.showOffersWall();
+                }
+            }
+        });
     }
 
     private void bindComponent(View view) {

@@ -45,7 +45,6 @@ public class Account implements Serializable {
 
     public Account(JSONObject accountInfo) throws JSONException {
         this.id = accountInfo.getInt("id");
-        this.username = accountInfo.getString("username");
         this.balance = accountInfo.getInt("balance");
         this.todayTaskCommission = accountInfo.getInt("todayTaskCommission");
         this.todayFriendCommission = accountInfo.getInt("todayFriendCommission");

@@ -2,6 +2,8 @@ package com.jk.makemoney.activitys;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ public abstract class BasicFragment extends Fragment implements View.OnClickList
     private View arrowLeft;
     private View title;
     private View bodyContainer;
+    private Handler handler;
 
     @Nullable
     @Override
@@ -28,6 +31,7 @@ public abstract class BasicFragment extends Fragment implements View.OnClickList
         title = template.findViewById(R.id.navText);
         bodyContainer = template.findViewById(R.id.body);
         arrowLeft.setOnClickListener(this);
+        handler = new Handler(Looper.getMainLooper());
         initTitle(title);
         initBody(bodyContainer);
         return template;
@@ -60,5 +64,9 @@ public abstract class BasicFragment extends Fragment implements View.OnClickList
     @Override
     public void onClick(View view) {
         onNavArrowClick(view);
+    }
+
+    protected Handler getHandler() {
+        return handler;
     }
 }
