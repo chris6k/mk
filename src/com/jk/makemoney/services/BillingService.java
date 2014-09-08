@@ -10,11 +10,10 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -34,29 +33,30 @@ public class BillingService {
      */
     public List<UserBilling> getBilling(int first, int count) throws Exception {
         List<UserBilling> result = new ArrayList<UserBilling>(count);
-        HttpGet get = new HttpGet(BILLING_LIST_ENDPOINT + "?userId=" + UserProfile.getInstance().getUserId());
-        Map<String, String> map = new TreeMap<String, String>();
-        map.put("userId", UserProfile.getInstance().getUserId());
-        SecurityService.appendAuthHeader(get, map);
+        HttpGet get = new HttpGet(BILLING_LIST_ENDPOINT + "?uid=" + UserProfile.getInstance().getUserId() + "&idx=" + first + "&total=" + count);
+        SecurityService.appendAuthHeader(get, null);
         try {
-            HttpResponse response = MkHttp.getInstance().send(get).get(1000, TimeUnit.MILLISECONDS);
+            HttpResponse response = MkHttp.getInstance().send(get).get(1, TimeUnit.MINUTES);
             if (response.getStatusLine().getStatusCode() != 200) {
                 return result;
             }
             String data = EntityUtils.toString(response.getEntity(), "utf-8");
-            JSONArray array = new JSONArray(data);
-            for (int i = 0; i < array.length(); i++) {
-                try {
-                    result.add(new UserBilling(array.getJSONObject(i)));
-                } catch (JSONException e) {
-                    Log.e(TAG, "parse json object err", e);
+            JSONObject resp = new JSONObject(data);
+            if (resp.getBoolean("result")) {
+                JSONArray array = resp.getJSONArray("data");
+                for (int i = 0; i < array.length(); i++) {
+                    try {
+                        result.add(new UserBilling(array.getJSONObject(i)));
+                    } catch (JSONException e) {
+                        Log.e(TAG, "parse json object err", e);
+                    }
                 }
             }
         } catch (Exception e) {
             Log.e(TAG, "get billing list failed", e);
-            if (e instanceof TimeoutException || e instanceof ExecutionException) {
-                throw e;
-            }
+//            if (e instanceof TimeoutException || e instanceof ExecutionException) {
+//                throw e;
+//            }
         }
         return result;
     }

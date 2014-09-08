@@ -11,10 +11,7 @@ import android.view.ViewGroup;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.services.AccountService;
-import com.jk.makemoney.utils.TextViewUtils;
-import com.jk.makemoney.utils.ThreadPool;
-import com.jk.makemoney.utils.ToastUtils;
-import com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.utils.*;
 
 /**
  * @author
@@ -41,6 +38,12 @@ public class DashboardFragment extends BasicFragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
     private void initData() {
         ThreadPool.getInstance().exec(new Runnable() {
             @Override
@@ -51,11 +54,11 @@ public class DashboardFragment extends BasicFragment {
                     getHandler().post(new Runnable() {
                         @Override
                         public void run() {
-                            TextViewUtils.setText(todayComm, String.valueOf(account.getTodayTaskCommission()));
-                            TextViewUtils.setText(todayReward, String.valueOf(account.getTodayFriendCommission()));
-                            TextViewUtils.setText(yesterdayComm, String.valueOf(account.getYestTaskCommission()));
-                            TextViewUtils.setText(yesterdayReward, String.valueOf(account.getYestFriendCommission()));
-                            TextViewUtils.setText(dashboardBalance, String.valueOf(account.getBalance()));
+                            TextViewUtils.setText(todayComm, NumberUtils.formatFloat((float) account.getTodayTaskCommission() / 100));
+                            TextViewUtils.setText(todayReward, NumberUtils.formatFloat((float) account.getTodayFriendCommission() / 100));
+                            TextViewUtils.setText(yesterdayComm, NumberUtils.formatFloat((float) account.getYestTaskCommission() / 100));
+                            TextViewUtils.setText(yesterdayReward, NumberUtils.formatFloat((float) account.getYestFriendCommission() / 100));
+                            TextViewUtils.setText(dashboardBalance, NumberUtils.formatFloat((float) account.getBalance() / 100));
                         }
                     });
                 } catch (Exception e) {

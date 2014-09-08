@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.IrrItemDetail;
-import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.component.IrrListView;
+import com.jk.makemoney.services.TaskService;
+import com.jk.makemoney.utils.PlatformEnum;
+import com.jk.makemoney.utils.TextViewUtils;
+import com.jk.makemoney.utils.ToastUtils;
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
 
@@ -22,11 +25,13 @@ import java.util.List;
  */
 public class IrrigationFragment extends BasicFragment {
     private IrrListView irrListView;
+    private TaskService taskService;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        taskService = new TaskService();
         bindComponent(view);
         initData();
 
@@ -40,6 +45,14 @@ public class IrrigationFragment extends BasicFragment {
         irrListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    //TODO 测试代码
+                    boolean succ = taskService.finishTask(PlatformEnum.YOUMI.getCode(),
+                            String.valueOf(System.currentTimeMillis()), 100, "下载有米赢得积分");
+                    if (succ) {
+                        ToastUtils.show("获取到积分");
+                    }
+                }
                 if (i == 1) {
                     AdManager adManager = AdManager.getInstance(getActivity());
                     adManager.init("149db85904b9d72c", "05e750d4dddcddab", true);

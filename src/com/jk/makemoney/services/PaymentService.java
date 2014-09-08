@@ -42,7 +42,7 @@ public class PaymentService {
         SecurityService.appendAuthHeader(post, map);
         try {
             post.setEntity(new UrlEncodedFormEntity(params, "utf-8"));
-            HttpResponse response = MkHttp.getInstance().send(post).get(1000, TimeUnit.MILLISECONDS);
+            HttpResponse response = MkHttp.getInstance().send(post).get(1, TimeUnit.MINUTES);
             if (response.getStatusLine().getStatusCode() != 200) {
                 return "错误的参数";
             }
@@ -51,12 +51,11 @@ public class PaymentService {
             if (jsonObject.has("result") && jsonObject.getBoolean("result")) {
                 return null;
             } else {
-                return jsonObject.has("msg") ? jsonObject.getString("msg") : "申请支付失败，发生未知错误";
+                return jsonObject.has("data") ? jsonObject.getString("data") : "申请支付失败，发生未知错误";
             }
         } catch (Exception e) {
             Log.e(TAG, "ask for settlement failed", e);
         }
-        return "申请支付失败，发生未知错误";
+        return "";
     }
-
 }

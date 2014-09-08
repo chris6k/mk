@@ -1,7 +1,8 @@
 package com.jk.makemoney.beans;
 
-import com.jk.makemoney.utils.NumberUtils;
 import com.jk.makemoney.component.MkListItem;
+import com.jk.makemoney.utils.DateTimeUtils;
+import com.jk.makemoney.utils.NumberUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,16 +37,16 @@ public class UserBilling implements Serializable {
 
     public UserBilling(JSONObject jsonObject) throws JSONException {
         if (jsonObject.has("dateDay")) {
-            this.dateDay = (Date) jsonObject.get("dateDay");
+            this.dateDay = DateTimeUtils.convert(jsonObject.getString("dateDay"));
         }
         if (jsonObject.has("description")) {
             this.description = jsonObject.getString("description");
         }
-        if (jsonObject.has("debits")) {
-            this.debits = jsonObject.getInt("debits");
+        if (jsonObject.has("debit")) {
+            this.debits = jsonObject.getInt("debit");
         }
-        if (jsonObject.has("credits")) {
-            this.credits = jsonObject.getInt("credits");
+        if (jsonObject.has("credit")) {
+            this.credits = jsonObject.getInt("credit");
         }
     }
 

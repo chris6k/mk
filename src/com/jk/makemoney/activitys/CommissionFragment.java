@@ -14,10 +14,7 @@ import com.jk.makemoney.component.ListEventNotify;
 import com.jk.makemoney.component.MkListView;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.BillingService;
-import com.jk.makemoney.utils.TextViewUtils;
-import com.jk.makemoney.utils.ThreadPool;
-import com.jk.makemoney.utils.ToastUtils;
-import com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.utils.*;
 
 import java.util.List;
 
@@ -56,7 +53,7 @@ public class CommissionFragment extends BasicFragment {
         mkListView.addUpdateNotify(new ListEventNotify() {
             @Override
             public void update(int lastCount, MkListView listView) {
-                loadBillingData(lastCount, 10);
+                loadBillingData(lastCount - 1, 10);
             }
         });
     }
@@ -73,10 +70,10 @@ public class CommissionFragment extends BasicFragment {
                         getHandler().post(new Runnable() {
                             @Override
                             public void run() {
-                                TextViewUtils.setText(totalComm, String.valueOf(account.getCommission()));
+                                TextViewUtils.setText(totalComm, NumberUtils.formatFloat((float) account.getCommission() / 100));
                                 TextViewUtils.setText(totalPayment,
-                                        String.valueOf(account.getCommission() - account.getBalance()));
-                                TextViewUtils.setText(totalBalance, String.valueOf(account.getBalance()));
+                                        NumberUtils.formatFloat((float) (account.getCommission() - account.getBalance()) / 100));
+                                TextViewUtils.setText(totalBalance, NumberUtils.formatFloat((float) account.getBalance() / 100));
                             }
                         });
                     }
@@ -85,7 +82,7 @@ public class CommissionFragment extends BasicFragment {
                 }
             }
         });
-        loadBillingData(1, 10);
+        loadBillingData(0, 10);
         //初始化默认值
         totalComm.setText("0");
         totalPayment.setText("0");

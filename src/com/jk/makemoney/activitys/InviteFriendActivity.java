@@ -63,9 +63,10 @@ public class InviteFriendActivity extends BasicActivity {
                     getHandler().post(new Runnable() {
                         @Override
                         public void run() {
-
-                            TextViewUtils.setText(inviteCount, String.valueOf(friendsInfo.getFriendCount()));
-                            TextViewUtils.setText(totalPaymentText, friendsInfo.getLastMonthCommissionYuan());
+                            if (friendsInfo != null) {
+                                TextViewUtils.setText(inviteCount, String.valueOf(friendsInfo.getFriendCount()));
+                                TextViewUtils.setText(totalPaymentText, friendsInfo.getLastMonthCommissionYuan());
+                            }
                             TextViewUtils.setText(userIdText, "用户ID:" + UserProfile.getInstance().getUserId());
                             TextViewUtils.setText(inviteCodeText, FriendsService.INVITE_ENDPOINT + "?" + UserProfile.getInstance().getUserId());
                             View[] rankTextView = new View[]{inviteChampion, inviteSecondPlace, inviteThirdPlace};
