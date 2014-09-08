@@ -14,6 +14,7 @@ import com.jk.makemoney.component.ListEventNotify;
 import com.jk.makemoney.component.MkListView;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.BillingService;
+import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.utils.ThreadPool;
 import com.jk.makemoney.utils.ToastUtils;
 import com.jk.makemoney.utils.UserProfile;
@@ -72,9 +73,10 @@ public class CommissionFragment extends BasicFragment {
                         getHandler().post(new Runnable() {
                             @Override
                             public void run() {
-                                totalComm.setText(account.getCommission());
-                                totalPayment.setText(account.getCommission() - account.getBalance());
-                                totalBalance.setText(account.getBalance());
+                                TextViewUtils.setText(totalComm, String.valueOf(account.getCommission()));
+                                TextViewUtils.setText(totalPayment,
+                                        String.valueOf(account.getCommission() - account.getBalance()));
+                                TextViewUtils.setText(totalBalance, String.valueOf(account.getBalance()));
                             }
                         });
                     }
