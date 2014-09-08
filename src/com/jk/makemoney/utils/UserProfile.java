@@ -1,4 +1,4 @@
-package com.jk.makemoney.com.jk.makemoney.utils;
+package com.jk.makemoney.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

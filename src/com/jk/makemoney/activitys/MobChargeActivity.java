@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.services.PaymentService;
+import com.jk.makemoney.utils.ToastUtils;
 
 /**
  * @author chris.xue
@@ -33,13 +33,13 @@ public class MobChargeActivity extends BasicActivity {
                 String account = chargePhoneEdit.getText().toString();
                 String amount = chargeAmountEdit.getText().toString();
                 if (TextUtils.isEmpty(account) || TextUtils.isEmpty(amount)) {
-                    Toast.makeText(MobChargeActivity.this, "请输入账户和金额", Toast.LENGTH_SHORT).show();
+                    ToastUtils.show("请输入账户和金额");
                 } else {
                     String err = paymentService.askForSettlement(account, amount, 1);
                     if (!TextUtils.isEmpty(err)) {
-                        Toast.makeText(MobChargeActivity.this, err, Toast.LENGTH_SHORT).show();
+                        ToastUtils.show(err);
                     } else {
-                        Toast.makeText(MobChargeActivity.this, "支付申请提交成功，我们将尽快处理", Toast.LENGTH_SHORT).show();
+                        ToastUtils.show("支付申请提交成功，我们将尽快处理");
                     }
                 }
             }

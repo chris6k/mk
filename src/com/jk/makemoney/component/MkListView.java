@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.UserBilling;
-import com.jk.makemoney.com.jk.makemoney.utils.DateTimeUtils;
+import com.jk.makemoney.utils.DateTimeUtils;
+import com.jk.makemoney.utils.ToastUtils;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -30,6 +31,20 @@ public class MkListView extends ListView {
 
     public MkListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(context);
+    }
+
+    public MkListView(Context context) {
+        super(context);
+        init(context);
+    }
+
+    public MkListView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
+
+    private void init(Context context) {
         this.handler = new android.os.Handler(Looper.getMainLooper());
         this.listEventNotifies = new ArrayList<ListEventNotify>(5);
         updateLock = new AtomicBoolean(false);
@@ -60,21 +75,13 @@ public class MkListView extends ListView {
         });
     }
 
-    public MkListView(Context context) {
-        super(context);
-    }
-
-    public MkListView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
     public void addUpdateNotify(ListEventNotify notify) {
         listEventNotifies.add(notify);
     }
 
     public void append(List<UserBilling> newData) {
         if (newData == null || newData.size() == 0) {
-            Toast.makeText(getContext(), "没有更多数据", Toast.LENGTH_SHORT).show();
+            ToastUtils.show("没有更多数据");
         }
         if (dataMap == null) {
             dataMap = UserBilling.mix(newData);

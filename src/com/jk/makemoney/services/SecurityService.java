@@ -1,6 +1,6 @@
 package com.jk.makemoney.services;
 
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.utils.UserProfile;
 import org.apache.http.client.methods.HttpUriRequest;
 
 import java.io.UnsupportedEncodingException;

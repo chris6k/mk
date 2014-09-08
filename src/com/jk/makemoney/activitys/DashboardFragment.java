@@ -8,13 +8,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.Account;
-import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.services.AccountService;
+import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.utils.ThreadPool;
+import com.jk.makemoney.utils.ToastUtils;
+import com.jk.makemoney.utils.UserProfile;
 
 /**
  * @author
@@ -59,7 +59,7 @@ public class DashboardFragment extends BasicFragment {
                         }
                     });
                 } catch (Exception e) {
-                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
+                    ToastUtils.show("获取账户信息失败，请稍候再试");
                 }
             }
         });

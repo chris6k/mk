@@ -8,14 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.FriendsInfo;
-import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.FriendsService;
+import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.utils.ThreadPool;
+import com.jk.makemoney.utils.ToastUtils;
+import com.jk.makemoney.utils.UserProfile;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -119,7 +119,7 @@ public class InviteFriendActivity extends BasicActivity {
             public void onClick(View view) {
                 ClipboardManager cmb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                 cmb.setPrimaryClip(ClipData.newPlainText("inviteCode", ((TextView) inviteCodeText).getText().toString()));
-                Toast.makeText(getBaseContext(), "已经复制到剪贴板", Toast.LENGTH_SHORT).show();
+                ToastUtils.show("已经复制到剪贴板");
             }
         });
     }

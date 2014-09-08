@@ -1,4 +1,4 @@
-package com.jk.makemoney.com.jk.makemoney.utils;
+package com.jk.makemoney.utils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;

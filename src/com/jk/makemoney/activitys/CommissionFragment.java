@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.beans.UserBilling;
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.component.ListEventNotify;
 import com.jk.makemoney.component.MkListView;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.services.BillingService;
 import com.jk.makemoney.utils.ThreadPool;
+import com.jk.makemoney.utils.ToastUtils;
+import com.jk.makemoney.utils.UserProfile;
 
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class CommissionFragment extends BasicFragment {
                 try {
                     final Account account = accountService.readAccountById(UserProfile.getInstance().getUserId());
                     if (account == null) {
-                        Toast.makeText(getActivity(), "读取账户信息失败，请稍候再试", Toast.LENGTH_SHORT).show();
+                        ToastUtils.show("读取账户信息失败，请稍候再试");
                     } else {
                         getHandler().post(new Runnable() {
                             @Override
@@ -79,7 +79,7 @@ public class CommissionFragment extends BasicFragment {
                         });
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
+                    ToastUtils.show("获取账户信息失败，请稍候重试");
                 }
             }
         });
@@ -99,7 +99,7 @@ public class CommissionFragment extends BasicFragment {
                     List<UserBilling> billingList = billingService.getBilling(offset, count);
                     mkListView.append(billingList);
                 } catch (Exception e) {
-                    Toast.makeText(getActivity(), "获取账户信息失败，请稍候重试", Toast.LENGTH_SHORT).show();
+                    ToastUtils.show("获取账户信息失败，请稍候重试");
                 }
             }
         });

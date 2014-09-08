@@ -1,4 +1,4 @@
-package com.jk.makemoney.com.jk.makemoney.utils;
+package com.jk.makemoney.utils;
 
 import java.text.DecimalFormat;
 

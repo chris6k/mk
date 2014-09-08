@@ -2,7 +2,7 @@ package com.jk.makemoney.receiver;
 
 import android.content.Context;
 import android.util.Log;
-import com.jk.makemoney.com.jk.makemoney.utils.PlatformEnum;
+import com.jk.makemoney.utils.PlatformEnum;
 import com.jk.makemoney.services.TaskService;
 import com.jk.makemoney.utils.ThreadPool;
 import net.youmi.android.offers.EarnPointsOrderInfo;

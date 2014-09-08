@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.IrrItemDetail;
-import com.jk.makemoney.com.jk.makemoney.utils.TextViewUtils;
+import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.component.IrrListView;
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;

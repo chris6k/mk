@@ -5,7 +5,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.utils.UserProfile;
 import com.jk.makemoney.services.AccountService;
 import com.tencent.weibo.sdk.android.component.sso.tools.MD5Tools;
 

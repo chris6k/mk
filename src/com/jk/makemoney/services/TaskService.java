@@ -1,9 +1,9 @@
 package com.jk.makemoney.services;
 
 import android.util.Log;
-import com.jk.makemoney.com.jk.makemoney.utils.Constants;
-import com.jk.makemoney.com.jk.makemoney.utils.MkHttp;
-import com.jk.makemoney.com.jk.makemoney.utils.UserProfile;
+import com.jk.makemoney.utils.Constants;
+import com.jk.makemoney.utils.MkHttp;
+import com.jk.makemoney.utils.UserProfile;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;

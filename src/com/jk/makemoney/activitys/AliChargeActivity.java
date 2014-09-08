@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.jk.makemoney.R;
 import com.jk.makemoney.services.PaymentService;
 import com.jk.makemoney.utils.ThreadPool;
+import com.jk.makemoney.utils.ToastUtils;
 
 /**
  * @author chris.xue
@@ -34,7 +34,7 @@ public class AliChargeActivity extends BasicActivity {
                 final String account = usernameEdit.getText().toString();
                 final String amount = chargeAlipayEdit.getText().toString();
                 if (TextUtils.isEmpty(account) || TextUtils.isEmpty(amount)) {
-                    Toast.makeText(AliChargeActivity.this, "请输入账户和金额", Toast.LENGTH_SHORT).show();
+                    ToastUtils.show("请输入账户和金额");
                 } else {
                     submit.setEnabled(false);
                     submit.setText(R.string.charge_submiting_text);
@@ -44,9 +44,9 @@ public class AliChargeActivity extends BasicActivity {
                             try {
                                 String err = paymentService.askForSettlement(account, amount, 2);
                                 if (!TextUtils.isEmpty(err)) {
-                                    Toast.makeText(AliChargeActivity.this, err, Toast.LENGTH_SHORT).show();
+                                    ToastUtils.show(err);
                                 } else {
-                                    Toast.makeText(AliChargeActivity.this, "支付申请提交成功，我们将尽快处理", Toast.LENGTH_SHORT).show();
+                                    ToastUtils.show("支付申请提交成功，我们将尽快处理");
                                 }
                             } finally {
                                 getHandler().post(new Runnable() {

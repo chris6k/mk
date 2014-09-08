@@ -1,7 +1,7 @@
 package com.jk.makemoney.beans;
 
 import android.util.Log;
-import com.jk.makemoney.com.jk.makemoney.utils.NumberUtils;
+import com.jk.makemoney.utils.NumberUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
