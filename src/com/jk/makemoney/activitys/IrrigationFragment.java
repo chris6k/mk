@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import cn.waps.AppConnect;
+
+import com.adsmogo.offers.MogoOffer;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.IrrItemDetail;
 import com.jk.makemoney.component.IrrListView;
@@ -40,7 +43,9 @@ public class IrrigationFragment extends BasicFragment {
 
     private void initData() {
         List<IrrItemDetail> irrItemDetails = Arrays.asList(new IrrItemDetail("小米", null, R.drawable.youmi, null),
-                new IrrItemDetail("有米", null, R.drawable.youmi, null));
+                new IrrItemDetail("有米", null, R.drawable.youmi, null),
+                new IrrItemDetail("万普", null, R.drawable.youmi, null),
+                new IrrItemDetail("芒果", null, R.drawable.youmi, null));
         irrListView.append(irrItemDetails);
         irrListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,12 +58,23 @@ public class IrrigationFragment extends BasicFragment {
                         ToastUtils.show("获取到积分");
                     }
                 }
+                //有米
                 if (i == 1) {
                     AdManager adManager = AdManager.getInstance(getActivity());
                     adManager.init("149db85904b9d72c", "05e750d4dddcddab", true);
                     OffersManager offersManager = OffersManager.getInstance(getActivity());
                     offersManager.onAppLaunch();
                     offersManager.showOffersWall();
+                }
+                //万普
+                if (i == 2) {
+                    AppConnect.getInstance("8d157eb814348762051b123f0eacafa7","",getActivity());
+                    AppConnect.getInstance(getActivity()).showOffers(getActivity());
+                }
+                //芒果
+                if (i == 3) {
+                    MogoOffer.init(getActivity(), "e36a63b3067d4264865f86ffab74de75");
+                    MogoOffer.showOffer(getActivity());
                 }
             }
         });
