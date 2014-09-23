@@ -103,7 +103,7 @@ public class DashboardFragment extends BasicFragment {
         downloadApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IrrigationFragment myFragment = new IrrigationFragment();
+                HelpFragment myFragment = new HelpFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.mainBody, myFragment).commit();
 

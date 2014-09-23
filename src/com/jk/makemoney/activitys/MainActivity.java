@@ -13,8 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.jk.makemoney.R;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
 public class MainActivity extends Activity implements DrawerLayout.DrawerListener {
     private DrawerLayout mainLayout;
     private FrameLayout mainBody;
@@ -84,7 +82,7 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                         menuText.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                IrrigationFragment myFragment = new IrrigationFragment();
+                                HelpFragment myFragment = new HelpFragment();
                                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                                 transaction.replace(R.id.mainBody, myFragment).commit();
                                 mainLayout.closeDrawer(mainMenu);
