@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jk.makemoney.R;
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 
 public class MainActivity extends Activity implements DrawerLayout.DrawerListener {
     private DrawerLayout mainLayout;
@@ -89,17 +91,20 @@ public class MainActivity extends Activity implements DrawerLayout.DrawerListene
                             }
                         });
                         break;
-                        
+
                     default:
                         break;
                 }
                 return menuItem;
             }
         });
-
         DashboardFragment myFragment = new DashboardFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.mainBody, myFragment).commit();
+        AdManager adManager = AdManager.getInstance(getBaseContext());
+        adManager.init("149db85904b9d72c", "05e750d4dddcddab", true);
+        OffersManager offersManager = OffersManager.getInstance(getBaseContext());
+        offersManager.onAppLaunch();
     }
 
     @Override

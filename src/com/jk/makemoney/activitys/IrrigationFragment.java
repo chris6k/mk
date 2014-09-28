@@ -16,7 +16,6 @@ import com.jk.makemoney.services.TaskService;
 import com.jk.makemoney.utils.PlatformEnum;
 import com.jk.makemoney.utils.TextViewUtils;
 import com.jk.makemoney.utils.ToastUtils;
-import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
 
 import java.util.Arrays;
@@ -59,10 +58,7 @@ public class IrrigationFragment extends BasicFragment {
                 }
                 //有米
                 if (i == 1) {
-                    AdManager adManager = AdManager.getInstance(getActivity());
-                    adManager.init("149db85904b9d72c", "05e750d4dddcddab", true);
                     OffersManager offersManager = OffersManager.getInstance(getActivity());
-                    offersManager.onAppLaunch();
                     offersManager.showOffersWall();
                 }
                 //万普
