@@ -124,8 +124,8 @@
                 android:name="com.jk.makemoney.receiver.YoumiReceiver"
                 android:exported="false">
             <intent-filter>
-                <action android:name="149db85904b9d72c"/>
-                <action android:name="05e750d4dddcddab"/>
+                <action android:name="ep_149db85904b9d72c"/>
+                <action android:name="vp_149db85904b9d72c"/>
             </intent-filter>
         </receiver>
     </application>

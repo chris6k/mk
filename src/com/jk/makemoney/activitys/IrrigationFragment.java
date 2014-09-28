@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import cn.waps.AppConnect;
-
 import com.adsmogo.offers.MogoOffer;
 import com.jk.makemoney.R;
 import com.jk.makemoney.beans.IrrItemDetail;
@@ -68,7 +67,7 @@ public class IrrigationFragment extends BasicFragment {
                 }
                 //万普
                 if (i == 2) {
-                    AppConnect.getInstance("8d157eb814348762051b123f0eacafa7","",getActivity());
+                    AppConnect.getInstance("8d157eb814348762051b123f0eacafa7", "", getActivity());
                     AppConnect.getInstance(getActivity()).showOffers(getActivity());
                 }
                 //芒果

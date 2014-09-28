@@ -12,7 +12,6 @@ import com.jk.makemoney.R;
 import com.jk.makemoney.beans.Account;
 import com.jk.makemoney.services.AccountService;
 import com.jk.makemoney.utils.*;
-
 import net.youmi.android.offers.PointsChangeNotify;
 import net.youmi.android.offers.PointsManager;
 
@@ -31,7 +30,7 @@ public class DashboardFragment extends BasicFragment {
     private View exchangeArr;
     private View dashboardBalance;
     private AccountService accountService;
-    
+
 
     @Nullable
     @Override
@@ -45,7 +44,7 @@ public class DashboardFragment extends BasicFragment {
     }
 
     private PointsChangeNotify PointsChangeNotify() {
-        
+
         return null;
     }
 
@@ -103,11 +102,9 @@ public class DashboardFragment extends BasicFragment {
         downloadApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HelpFragment myFragment = new HelpFragment();
+                IrrigationFragment irrigationFragment = new IrrigationFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.mainBody, myFragment).commit();
-
-
+                transaction.replace(R.id.mainBody, irrigationFragment).commit();
             }
         });
 
@@ -145,6 +142,6 @@ public class DashboardFragment extends BasicFragment {
             ((ViewGroup) bodyContainer).addView(LayoutInflater.from(getActivity()).inflate(R.layout.dashboard, null, false));
         }
     }
-    
-    
+
+
 }
